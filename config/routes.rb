@@ -1,15 +1,4 @@
 Rails.application.routes.draw do
-  get 'teams/new'
-
-  get 'teams/create'
-
-  get 'teams/index'
-
-  get 'teams/edit'
-
-  get 'teams/update'
-
-  get 'teams/show'
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root to: 'static_pages#home'
+  resources :teams
 end
