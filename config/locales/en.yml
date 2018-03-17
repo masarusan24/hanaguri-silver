@@ -1,33 +1,58 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  author: author
+  created_at: created_at
+  occurred: "%{count} error occurred"
+  please_login: Please Login
+  confirm_detele: delete it?
+  email_notification: Photo has been posted
+  post_link: link to post
+  users:
+    new:
+      title: Sign up
+    edit:
+      title: Edit User Info
+    show:
+      title:  "%{user}'s page"
+      favorite_Pictures: Favorite Pictures
+    index:
+      title: User List
+    create:
+      success: Created a User
+    update:
+      success: Edited a User Info
+    destroy:
+      success: Deleted a User
+  pictures:
+    new:
+      title: Create Picture
+    edit:
+      title: Edit Picture
+    show:
+      title: Picture Detail
+      favorite_Pictures: Favorite Pictures
+    index:
+      title: Picture List
+    confirm:
+      title: Post with the following content
+    create:
+      success: Created a Picture
+    update:
+      success: Edited a Picture
+    destroy:
+      success: Deleted a Picture
+  sessions:
+    create:
+      success: Session Log in
+      failed: Failed Log in
+    destroy:
+      success: Session Log out
+  favorites:
+    create:
+      success: added %{user}'s photo to your favorites.
+    destroy:
+      success: deleted %{user}'s photo from your favorites.
+  banken:
+    default: 'You cannot perform this action.'
+    posts_loyalty:
+      update?: 'You cannot edit this post!'
+      create?: 'You cannot create posts!'

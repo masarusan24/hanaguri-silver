@@ -32,12 +32,17 @@ class TeamsController < ApplicationController
   def show
   end
 
+  def destroy
+    @team.destroy
+    redirect_to teams_path, flash: { danger: t('.success') }
+  end
+
   private
   def team_params
     params.require(:team).permit(:team_name, :team_short_name, :home_ground, :overview, :logo)
   end
 
   def set_teams
-    @team = Team.find(params[:id])
+    @team = Team.find_by(team_short_name: params[:team_short_name])
   end
 end

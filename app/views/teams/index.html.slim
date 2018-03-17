@@ -1,6 +1,11 @@
 h1.title
-  | title
-  .
-  - @teams.each do |team|
-    = team.team_name
-    = team.team_short_name
+  = t '.teamlist'
+.container
+  .row
+    - @teams.each do |team|
+      .col-xs-12.col-md-12
+        .team-panel
+          - unless team.logo.nil?
+            = image_tag team.logo.thumb
+          = team.team_name
+          = team.team_short_name

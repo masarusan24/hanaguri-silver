@@ -3,22 +3,13 @@ h1.title
 .container
   .row
     .col-xs-12.col-md-12
-      .picture-panel
-        .prof-panel
-          = image_tag @picture.user.image.thumb
-          = @picture.user.name
-        .image_panel
-          = image_tag @picture.image
-        .content-panel
-          - if @favorite.present?
-            = link_to favorite_path(picture_id: @picture.id), method: :delete do
-              i.fa.fa-star.fa-2x
-          - else
-            = link_to favorites_path(picture_id: @picture.id), method: :post do
-              i.fa.fa-star.faa-flash.animated.fa-2x
-          p
-            = @picture.content
-          p
-            =t :created_at
-            | :
-            = @picture.created_at
+      .team-panel
+        = @team.team_name
+        p
+        = @team.team_short_name
+        p
+        = @team.home_ground
+        p
+        = @team.overview
+        p
+        = image_tag @team.logo
