@@ -15,3 +15,84 @@
  *= require_tree .
  *= require_self
  */
+
+ body {
+   margin-top: 50px;
+   margin-bottom: 80px;
+ }
+
+ h1.title {
+   text-align: center;
+   margin: 5% 30px;
+   padding-top: 20px;
+ }
+
+ .about {
+   margin-left: 20px;
+   margin-right: 20px;
+ }
+
+ .preamble {
+   margin-left: 20px;
+   margin-right: 20px;
+ }
+
+ .preamble h1 {
+   border-bottom:solid 3px;
+   border-bottom-color: #2c4f54;
+ }
+
+ .about h2 {
+   border-bottom:solid 3px;
+   border-bottom-color: #2c4f54;
+   border-bottom-width: thin;
+ }
+
+ .btn {
+   margin: 10px 0;
+ }
+
+ .picture-panel {
+   text-align: center;
+   border: solid #b2b5b5;
+   border-width: 1px;
+   margin: 10px 0;
+ }
+
+.prof-panel {
+  text-align: left;
+}
+
+.prof-panel img {
+    border-radius: 150px;
+    -moz-border-image: border-radius 150px;
+    -webkit-border-image: border-radius 150px;
+    padding: 10px;
+}
+
+.prof-title img {
+    border-radius: 150px;
+    -moz-border-image: border-radius 150px;
+    -webkit-border-image: border-radius 150px;
+    padding: 10px;
+}
+
+.image_panel {
+
+}
+
+.team_panel {
+  text-align: left;
+  padding: 10px;
+}
+
+.team-panel img {
+    border-radius: 150px;
+    -moz-border-image: border-radius 150px;
+    -webkit-border-image: border-radius 150px;
+    padding: 10px;
+}
+
+.btn-panel {
+  width: 33%;
+}
