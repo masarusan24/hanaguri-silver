@@ -1,0 +1,24 @@
+.container
+  h1.title
+    =t '.title'
+  .row
+    = form_with(model: @picture, url: pictures_path, local: true) do |form|
+      .col-xs-12.col-md-12
+        = form.hidden_field :title
+        = form.hidden_field :content
+        h2
+          =t :content
+        p
+          = @picture.content
+        - unless @picture.image_cache.nil?
+          p
+            = image_tag @picture.image.url
+          p
+            = hidden_field_tag :"cache[image]", @picture.image.cache_name
+      .col-xs-12.col-md-2
+        = form.submit t: :submit, class: "btn btn-default"
+      .col-xs-12.col-md-2
+        = form_with(model: @picture, url: new_picture_path, local: true, method: :get) do |form|
+          = form.hidden_field :title
+          = form.hidden_field :content
+        = form.submit 'Back', name: 'back', class: "btn btn-default"
