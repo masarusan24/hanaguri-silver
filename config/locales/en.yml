@@ -6,7 +6,22 @@ en:
   confirm_detele: delete it?
   email_notification: Photo has been posted
   post_link: link to post
-  users:
+  teams:
+    new:
+      title: Team create
+    edit:
+      title: Edit Team Info
+    show:
+      title:  "%{team}'s page"
+    index:
+      title: Team List
+    create:
+      success: Created a Team
+    update:
+      success: Edited a Team Info
+    destroy:
+      success: Deleted a Team
+  members:
     new:
       title: Sign up
     edit:

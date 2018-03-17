@@ -204,8 +204,9 @@ ja:
     pm: 午後
   log_in: ログイン
   log_out: ログアウト
-  sign_up: 新規ユーザ登録
-  user_list: ユーザ一覧
+  sign_up: 新規選手登録
+  team_list: 選手一覧
+  user_list: 選手一覧
   picture_list: 投稿一覧
   contact: お問合わせ
   contact_form: お問い合わせフォーム
@@ -223,22 +224,37 @@ ja:
   confirm_detele: 削除しますか？
   email_notification: 写真を投稿しました
   post_link: 投稿内容はこちら
-  users:
+  teams:
     new:
-      title: 新規ユーザ登録
+      title: 新規チーム登録
     edit:
-      title: ユーザ情報を編集する
+      title: チーム情報を編集する
+    show:
+      title: "%{team}のページ"
+    index:
+      title: チーム一覧
+    create:
+      success: チームを作成しました
+    update:
+      success: チーム情報を編集しました
+    destroy:
+      success: チームを削除しました
+  members:
+    new:
+      title: 新規選手登録
+    edit:
+      title: 選手情報を編集する
     show:
       title: "%{user}のページ"
       favorite_pictures: お気に入り一覧
     index:
-      title: ユーザ一覧
+      title: 選手一覧
     create:
-      success: ユーザを作成しました
+      success: 選手を作成しました
     update:
-      success: ユーザ情報を編集しました
+      success: 選手情報を編集しました
     destroy:
-      success: ユーザを削除しました
+      success: 選手を削除しました
   pictures:
     new:
       title: 写真を投稿する
