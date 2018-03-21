@@ -32,7 +32,7 @@ members.each do |member|
     name: member[:name],
     full_name: member[:full_name],
     uniform_number: member[:uniform_number],
-    position: member[:position],
-    image: members[:image]
+    position: member[:position]
+    # image: members[:image]
   )
 end
