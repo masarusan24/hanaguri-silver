@@ -1,16 +1,15 @@
 .container
   h1.title
     .prof-title
-      - unless @member.image.nil?
-        = image_tag @member.image.thumb
+    .col-lg-12.col-sm-12.text-center.mb-4
+      - if @member.image?
+        = image_tag @member.image, class: "rounded-circle img-fluid d-block mx-auto"
       - else
-        .col-lg-12.col-sm-12.text-center.mb-4
-        img.rounded-circle.img-fluid.d-block.mx-auto[src="http://placehold.it/200x200" alt=""]
-        h3
-          = link_to @member.full_name, member_path(@member.name)
-          small
-            = @member.position
-        p
-          | What does this team member to? Keep it short! This is also a great spot for social links!
-      =t '.title', member: @member.full_name
+        = image_tag (asset_path "noimage.png"), class: "rounded-circle img-fluid d-block mx-auto"
+      h3
+        = @member.full_name
+        small
+          = @member.position
+      p
+        | What does this team member to? Keep it short! This is also a great spot for social links!
       = link_to t(:edit), edit_member_path(@member.name), class: "btn btn-link"

@@ -7,11 +7,10 @@ h1.title
         | Our Team
     - @members.each do |member|
       .col-lg-4.col-sm-6.text-center.mb-4
-        - unless member.image.nil?
+        - if member.image?
           = image_tag member.image, class: "rounded-circle img-fluid d-block mx-auto"
         - else
-          = image_tag asset_path "noimage.jpg", class: "rounded-circle img-fluid d-block mx-auto"
-          / img.rounded-circle.img-fluid.d-block.mx-auto[src="http://placehold.it/200x200" alt=""]
+          = image_tag (asset_path "noimage.png"), class: "rounded-circle img-fluid d-block mx-auto"
         h3
           = link_to member.full_name, member_path(member.name)
           small

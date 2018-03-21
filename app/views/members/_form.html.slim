@@ -20,24 +20,12 @@
     .member_full_name
       = form.label :full_name
       = form.text_field :full_name, class: "form-control", placeholder: "full name"
-    .member_email
-      = form.label :email
-      = form.text_field :email, class: "form-control", placeholder: "email@email.com"
     .member_uniform_number
       = form.label :uniform_number
       = form.number_field :uniform_number, class: "form-control", placeholder: "10"
     .member_position
       = form.label :position
       = form.text_field :position, class: "form-control", placeholder: "position"
-    .member_role
-      = form.label :role
-      = form.number_field :role, class: "form-control", placeholder: "1"
-    .member_password
-      = form.label :password
-      = form.password_field :password, class: "form-control", placeholder: "password"
-    .member_password
-      = form.label :password_confirmation
-      = form.password_field :password_confirmation, class: "form-control", placeholder: "password_confirmation"
     .member_image
       = form.label :image
       = form.file_field :image, id: :member_image
