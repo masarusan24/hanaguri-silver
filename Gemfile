@@ -20,6 +20,8 @@ gem "font-awesome-rails"
 # for image upload
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'fog'
+gem 'dotenv-rails'
 # for user authorization setting
 gem 'banken'
 # for user slim template engine

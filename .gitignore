@@ -18,7 +18,7 @@
 
 .byebug_history
 
-# Ignore SendGrid ID,Password
+# Ignore env files (SendGrid:ID,Password AWS:Access key ID,Secret access key)
 .env
 
 # Ignore all upload files
