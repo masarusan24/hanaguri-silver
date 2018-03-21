@@ -7,7 +7,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   when 'test'
     storage :file
   when 'production'
-    storage :fog
+    storage :file
   end
 
   def store_dir
