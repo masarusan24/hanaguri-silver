@@ -245,7 +245,7 @@ ja:
     edit:
       title: 選手情報を編集する
     show:
-      title: "%{user}のページ"
+      title: "%{member}"
       favorite_pictures: お気に入り一覧
     index:
       title: 選手一覧

@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
+  devise_for :members
   root to: 'static_pages#home'
   resources :teams, param: :team_short_name
+  resources :members, param: :name do
+    collection do
+      post :confirm
+    end
+  end
   resources :contacts
 
   if Rails.env.development?
