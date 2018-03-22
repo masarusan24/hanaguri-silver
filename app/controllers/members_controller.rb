@@ -38,11 +38,19 @@ class MembersController < ApplicationController
   end
 
   private
+
   def set_member
     @member = Member.find_by(name: params[:name])
   end
 
   def member_params
-    params.require(:member).permit(:name, :full_name, :uniform_number, :position, :image)
+    params.require(:member).permit(
+      :name,
+      :full_name,
+      :uniform_number,
+      :position,
+      :image,
+      :team_id
+    )
   end
 end

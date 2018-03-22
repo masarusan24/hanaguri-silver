@@ -26,6 +26,9 @@
     .member_position
       = form.label :position
       = form.text_field :position, class: "form-control", placeholder: "position"
+    .member_team_id
+      = form.label :team_id
+      = form.number_field :team_id, class: "form-control", placeholder: "team id"
     .member_image
       = form.label :image
       = form.file_field :image, id: :member_image
