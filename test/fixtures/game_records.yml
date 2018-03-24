@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  year: 1
+  date: 2018-03-22
+  ground: MyString
+  score: 1
+  win: false
+  lose: false
+
+two:
+  year: 1
+  date: 2018-03-22
+  ground: MyString
+  score: 1
+  win: false
+  lose: false
