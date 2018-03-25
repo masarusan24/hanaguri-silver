@@ -26,8 +26,6 @@ gem 'dotenv-rails'
 gem 'banken'
 # for user slim template engine
 gem 'slim'
-# for login
-gem 'devise'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
