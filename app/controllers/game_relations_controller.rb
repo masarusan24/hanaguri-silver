@@ -1,0 +1,2 @@
+class GameRelationsController < ApplicationController
+end

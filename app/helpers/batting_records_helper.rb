@@ -1,0 +1,2 @@
+module BattingRecordsHelper
+end

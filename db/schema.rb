@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180324101704) do
+ActiveRecord::Schema.define(version: 20180325084229) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20180324101704) do
     t.integer "stolen_base"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "year"
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -50,6 +51,20 @@ ActiveRecord::Schema.define(version: 20180324101704) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "team_id"
+  end
+
+  create_table "game_relations", force: :cascade do |t|
+    t.integer "team_id"
+    t.integer "game_record_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "is_top"
+    t.boolean "win"
+    t.boolean "lose"
+    t.boolean "draw"
+  end
+
+  create_table "innings_details", force: :cascade do |t|
     t.integer "top_of_first"
     t.integer "top_of_second"
     t.integer "top_of_third"
@@ -74,17 +89,8 @@ ActiveRecord::Schema.define(version: 20180324101704) do
     t.integer "bottom_of_tenth"
     t.integer "bottom_of_eleventh"
     t.integer "bottom_of_twelfth"
-  end
-
-  create_table "game_relations", force: :cascade do |t|
-    t.integer "team_id"
-    t.integer "game_record_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "is_top"
-    t.boolean "win"
-    t.boolean "lose"
-    t.boolean "draw"
   end
 
   create_table "members", force: :cascade do |t|
@@ -113,6 +119,7 @@ ActiveRecord::Schema.define(version: 20180324101704) do
     t.integer "bb_hbp"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "year"
   end
 
   create_table "position_relations", force: :cascade do |t|

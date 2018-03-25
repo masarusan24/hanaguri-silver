@@ -1,4 +1,7 @@
 class GameRecord < ApplicationRecord
+  # has_one association with InningsDetail model
+  has_one :innings_detail
+
   # multiple association with Team model
   has_many :game_relations, dependent: :destroy
   has_many :teams, through: :game_relations, source: :team

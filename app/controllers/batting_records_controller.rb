@@ -1,0 +1,2 @@
+class BattingRecordsController < ApplicationController
+end
