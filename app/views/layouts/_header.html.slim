@@ -20,7 +20,7 @@ header.navbar.navbar-inverse.navbar-fixed-top
           = link_to t(:contact), new_contact_path
         - if logged_in?
           li
-            = link_to t(:new_post), new_member_path
+            = link_to t(:admin_menu), admin_menu_path
           li
             = link_to t(:logout), session_path(current_user.id), method: :delete
         - else

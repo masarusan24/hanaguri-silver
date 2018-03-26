@@ -1,0 +1,2 @@
+class InningsDetailsController < ApplicationController
+end

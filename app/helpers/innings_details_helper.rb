@@ -1,0 +1,2 @@
+module InningsDetailsHelper
+end

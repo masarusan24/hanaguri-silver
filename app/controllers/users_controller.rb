@@ -26,6 +26,8 @@ class UsersController < ApplicationController
 
   def show() end
 
+  def admin() end
+
   def index
     @users = User.all
   end
