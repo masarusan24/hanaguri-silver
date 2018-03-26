@@ -26,6 +26,7 @@ gem 'dotenv-rails'
 gem 'banken'
 # for user slim template engine
 gem 'slim'
+gem 'jquery-ui-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
