@@ -17,6 +17,12 @@ header.navbar.navbar-inverse.navbar-fixed-top
         li
           = link_to t(:team_list), members_path
         li
-          = link_to t(:new_post), new_member_path
-        li
           = link_to t(:contact), new_contact_path
+        - if logged_in?
+          li
+            = link_to t(:new_post), new_member_path
+          li
+            = link_to t(:logout), session_path(current_user.id), method: :delete
+        - else
+          li
+            = link_to t(:login), new_session_path

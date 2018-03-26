@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
   resources :contacts
   resources :users, param: :name
+  resources :sessions, only: %i[new create destroy]
 
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end
