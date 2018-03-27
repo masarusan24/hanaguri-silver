@@ -8,13 +8,22 @@
           - @game_record.errors.full_messages.each do |msg|
             li
               = msg
-    .game_record_year
-      = form.label :game_record_year
-      = form.number_field :game_record_year, class: "form-control", placeholder: "year"
-    .game_record_date
-      = form.label :game_record_date
-      = form.text_field :game_record_date, class: "form-control date-picker"
-    .game_record_ground
-      = form.label :game_record_ground
-      = form.text_field :game_record_ground, class: "form-control", placeholder: "ground"
-    = form.submit t: :submit, class: "btn btn-default"
+    .form-wrapper
+      h1
+        =t '.title'
+      form
+        .form-item
+          = form.label :year
+          = form.date_select :year, {discard_day: true, discard_month: true}, class: "form-control", placeholder: Date.today.year
+        .form-item
+          = form.label :date
+          = form.text_field :date, class: "form-control date-picker", placeholder: Date.today
+        .form-item
+          = form.label :ground
+          = form.select :ground, [["松原小学校","松原小学校"],["そうか公園","そうか公園"],["栄小学校","栄小学校"],["その他","その他"]]
+        .form-item
+          = form.label :opponent_team
+          = form.select :opponent_team, [["花栗シルバー","花栗シルバー"],["ゴーゴー","ゴーゴー"],["花小ソフト","花小ソフト"],["栄小","栄小"],["カームズ","カームズ"],["シャーク","シャーク"]], class: "form-control"
+        .button-panel
+          = form.submit t: :submit, class: "button"
+      .form-footer
