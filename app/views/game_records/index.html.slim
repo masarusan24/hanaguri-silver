@@ -2,10 +2,9 @@ h1.title
   = t '.title'
 .container
   .row
-    - @teams.each do |team|
+    - @game_records.each do |game|
       .col-xs-12.col-md-12
-        .team-panel
-          - unless team.logo.nil?
-            = image_tag team.logo.thumb
-          = team.team_name
-          = team.team_short_name
+        .game-panel
+           = game.id
+           = game.date
+           = game.ground
