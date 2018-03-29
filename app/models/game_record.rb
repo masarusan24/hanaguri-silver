@@ -3,6 +3,10 @@ class GameRecord < ApplicationRecord
   has_one :innings_detail
   accepts_nested_attributes_for :innings_detail
 
+  # has_one association with InningsDetail model
+  has_one :inning
+  accepts_nested_attributes_for :inning
+
   # multiple association with Team model
   has_many :game_relations, dependent: :destroy
   has_many :teams, through: :game_relations, source: :team

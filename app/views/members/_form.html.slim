@@ -14,29 +14,22 @@
           - @member.errors.full_messages.each do |msg|
             li
               = msg
-    .form-wrapper
-      h1
-        =t '.title'
-      form
-        .form-item
-          = form.label :name
-          = form.text_field :name, class: "form-control", placeholder: "name"
-        .form-item
-          = form.label :full_name
-          = form.text_field :full_name, class: "form-control", placeholder: "full name"
-        .form-item
-          = form.label :uniform_number
-          = form.number_field :uniform_number, class: "form-control", placeholder: "10"
-        .form-item
-          = form.label :position
-          = form.text_field :position, class: "form-control", placeholder: "position"
-        .form-item
-          = form.label :team_id
-          = form.number_field :team_id, class: "form-control", placeholder: "team id"
-        .form-item
-          = form.label :image
-          = form.file_field :image, id: :member_image
-          = form.hidden_field :image_cache
-        .button-panel
-          = form.submit t: :submit, class: "button"
-      .form-footer
+    h1
+      =t '.title'
+    .member_name
+      = form.label :name
+      = form.text_field :name, class: "form-control", placeholder: "name"
+    .member_full_name
+      = form.label :full_name
+      = form.text_field :full_name, class: "form-control", placeholder: "full name"
+    .member_uniform_number
+      = form.label :uniform_number
+      = form.number_field :uniform_number, class: "form-control", placeholder: "10"
+    .member_position
+      = form.label :position
+      = form.text_field :position, class: "form-control", placeholder: "position"
+    .game_image
+      = form.label :image
+      = form.file_field :image, id: :member_image
+      = form.hidden_field :image_cache
+    = form.submit t: :submit, class: "btn btn-default"

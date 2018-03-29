@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180325091904) do
+ActiveRecord::Schema.define(version: 20180329044940) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,14 @@ ActiveRecord::Schema.define(version: 20180325091904) do
     t.boolean "draw"
   end
 
+  create_table "innings", force: :cascade do |t|
+    t.string "top_of_first"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "game_record_id"
+    t.index ["game_record_id"], name: "index_innings_on_game_record_id"
+  end
+
   create_table "innings_details", force: :cascade do |t|
     t.integer "top_of_first"
     t.integer "top_of_second"
@@ -99,6 +107,8 @@ ActiveRecord::Schema.define(version: 20180325091904) do
     t.integer "bottom_of_twelfth"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "game_record_id"
+    t.index ["game_record_id"], name: "index_innings_details_on_game_record_id"
   end
 
   create_table "members", force: :cascade do |t|
@@ -162,5 +172,7 @@ ActiveRecord::Schema.define(version: 20180325091904) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "innings", "game_records"
+  add_foreign_key "innings_details", "game_records"
   add_foreign_key "members", "teams"
 end
