@@ -1,32 +1,32 @@
-class GameRecordsController < ApplicationController
-  before_action :set_game_record, only: %i[show edit update destroy]
+class GamesController < ApplicationController
+  before_action :set_game, only: %i[show edit update destroy]
   before_action :redirect_to_login, only: %i[new edit update destroy]
 
   def new
-    @game_record = my_team.games.build
-    @innings_detail = @game_record.build_innings_detail
+    @game = my_team.games.build
+    @score = @game.build_score
   end
 
   def create
-    @game_record = my_team.games.build(game_record_params)
-    @innings_detail = @game_record.build_innings_detail(innings_detail_params)
-    if @game_record.save && @innings_detail.save
-      redirect_to game_records_path, flash: { success: t('.success') }
+    @game = my_team.games.build(game_params)
+    # @score = @game.build_score(score_params)
+    if @game.save
+      redirect_to new_score_path, flash: { success: t('.success') }
     else
       render :new
     end
   end
 
   def index
-    @game_records = GameRecord.all
+    @games = Game.all
   end
 
   def edit
   end
 
   def update
-    if @game_record.update(game_record_params)
-      redirect_to game_records_path, flash: { success: t('.success') }
+    if @game.update(game_params)
+      redirect_to games_path, flash: { success: t('.success') }
     else
       render :edit
     end
@@ -36,19 +36,21 @@ class GameRecordsController < ApplicationController
   end
 
   def destroy
-    @game_record.destroy
-    redirect_to game_records_path, flash: { danger: t('.success') }
+    @game.destroy
+    redirect_to games_path, flash: { danger: t('.success') }
   end
 
   private
 
-  def game_record_params
-    params.require(:game_record).permit(
+  def game_params
+    params.require(:game).permit(
       :year,
       :date,
+      :team_top,
+      :team_bottom,
       :ground,
-      innings_detail_attributes: [
-        :game_record_id,
+      score_attributes: [
+        :game_id,
         :top_of_first,
         :top_of_second,
         :top_of_third,
@@ -76,9 +78,9 @@ class GameRecordsController < ApplicationController
       ])
   end
 
-  def innings_detail_params
-    params.require(:innings_detail).permit(
-      :game_record_id,
+  def score_params
+    params.require(:score).permit(
+      :game_id,
       :top_of_first,
       :top_of_second,
       :top_of_third,
@@ -107,11 +109,11 @@ class GameRecordsController < ApplicationController
   end
 
   # def game_relation_params
-  #   params.require(:game_relation).permit(:team_id, :game_record_id, :is_top, :win, :lose, :draw)
+  #   params.require(:game_relation).permit(:team_id, :game_id, :is_top, :win, :lose, :draw)
   # end
 
-  def set_game_record
-    @game_record = GameRecord.find(params[:id])
+  def set_game
+    @game = GameRecord.find(params[:id])
   end
 
   def redirect_to_login

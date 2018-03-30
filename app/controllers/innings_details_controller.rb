@@ -1,2 +1,0 @@
-class InningsDetailsController < ApplicationController
-end

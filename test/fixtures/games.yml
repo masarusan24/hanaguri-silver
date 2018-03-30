@@ -2,16 +2,14 @@
 
 one:
   year: 1
-  date: 2018-03-22
+  date: 2018-03-29
+  team_top: MyString
+  team_bottom: MyString
   ground: MyString
-  score: 1
-  win: false
-  lose: false
 
 two:
   year: 1
-  date: 2018-03-22
+  date: 2018-03-29
+  team_top: MyString
+  team_bottom: MyString
   ground: MyString
-  score: 1
-  win: false
-  lose: false

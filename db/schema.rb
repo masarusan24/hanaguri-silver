@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180329044940) do
+ActiveRecord::Schema.define(version: 20180329143442) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,18 @@ ActiveRecord::Schema.define(version: 20180329044940) do
     t.boolean "win"
     t.boolean "lose"
     t.boolean "draw"
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.integer "year"
+    t.date "date"
+    t.string "team_top"
+    t.string "team_bottom"
+    t.string "ground"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "team_id"
+    t.index ["team_id"], name: "index_games_on_team_id"
   end
 
   create_table "innings", force: :cascade do |t|
@@ -154,6 +166,37 @@ ActiveRecord::Schema.define(version: 20180329044940) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "scores", force: :cascade do |t|
+    t.bigint "game_id"
+    t.integer "top_of_first"
+    t.integer "top_of_second"
+    t.integer "top_of_third"
+    t.integer "top_of_fourth"
+    t.integer "top_of_fifth"
+    t.integer "top_of_sixth"
+    t.integer "top_of_seventh"
+    t.integer "top_of_eighth"
+    t.integer "top_of_ninth"
+    t.integer "top_of_tenth"
+    t.integer "top_of_eleventh"
+    t.integer "top_of_twelfth"
+    t.integer "bottom_of_first"
+    t.integer "bottom_of_second"
+    t.integer "bottom_of_third"
+    t.integer "bottom_of_fourth"
+    t.integer "bottom_of_fifth"
+    t.integer "bottom_of_sixth"
+    t.integer "bottom_of_seventh"
+    t.integer "bottom_of_eighth"
+    t.integer "bottom_of_ninth"
+    t.integer "bottom_of_tenth"
+    t.integer "bottom_of_eleventh"
+    t.integer "bottom_of_twelfth"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_scores_on_game_id"
+  end
+
   create_table "teams", force: :cascade do |t|
     t.string "team_name"
     t.string "team_short_name"
@@ -172,7 +215,9 @@ ActiveRecord::Schema.define(version: 20180329044940) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "games", "teams"
   add_foreign_key "innings", "game_records"
   add_foreign_key "innings_details", "game_records"
   add_foreign_key "members", "teams"
+  add_foreign_key "scores", "games"
 end

@@ -1,6 +1,7 @@
-class CreateInningsDetails < ActiveRecord::Migration[5.1]
+class CreateScores < ActiveRecord::Migration[5.1]
   def change
-    create_table :innings_details do |t|
+    create_table :scores do |t|
+      t.references :game, foreign_key: true
       t.integer :top_of_first
       t.integer :top_of_second
       t.integer :top_of_third
@@ -25,7 +26,6 @@ class CreateInningsDetails < ActiveRecord::Migration[5.1]
       t.integer :bottom_of_tenth
       t.integer :bottom_of_eleventh
       t.integer :bottom_of_twelfth
-
       t.timestamps
     end
   end

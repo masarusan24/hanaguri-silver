@@ -1,11 +1,11 @@
 .container
-  = form_with(model: @game_record, local: true, url: choose_new_or_edit_game_record) do |form|
-    - if @game_record.errors.any?
+  = form_with(model: @game, local: true, url: choose_new_or_edit_game) do |form|
+    - if @game.errors.any?
       #error_explanation
         h2
-          =t :occurred, count: @game_record.errors.count
+          =t :occurred, count: @game.errors.count
         ul
-          - @game_record.errors.full_messages.each do |msg|
+          - @game.errors.full_messages.each do |msg|
             li
               = msg
     .game_date

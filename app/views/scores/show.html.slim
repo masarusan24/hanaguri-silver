@@ -1,0 +1,15 @@
+h1.title
+  =t '.title'
+.container
+  .row
+    .col-xs-12.col-md-12
+      .team-panel
+        = @team.team_name
+        p
+        = @team.team_short_name
+        p
+        = @team.home_ground
+        p
+        = @team.overview
+        p
+        = image_tag @team.logo

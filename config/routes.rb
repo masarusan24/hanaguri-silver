@@ -10,11 +10,12 @@ Rails.application.routes.draw do
   resources :contacts
   resources :users, param: :name
   resources :sessions, only: %i[new create destroy]
-  resources :game_records
+  resources :games
+  resources :scores, only: %i[new create edit update destroy]
   resources :batting_records
   resources :pitching_records
-  resources :game_relations, only: %i[create destroy]
-  resources :position_relations, only: %i[create destroy]
+  # resources :game_relations, only: %i[create destroy]
+  # resources :position_relations, only: %i[create destroy]
 
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end
