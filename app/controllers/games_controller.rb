@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   before_action :set_game, only: %i[show edit update destroy]
+  before_action :set_score, only: %i[show edit update destroy]
   before_action :redirect_to_login, only: %i[new edit update destroy]
 
   def new
@@ -9,8 +10,8 @@ class GamesController < ApplicationController
 
   def create
     @game = my_team.games.build(game_params)
-    @score = @game.build_score
-    if @game.save || @score.save
+    @score = @game.build_score(score_params)
+    if @game.save
       redirect_to games_path, flash: { success: t('.success') }
     else
       render :new
@@ -25,7 +26,7 @@ class GamesController < ApplicationController
   end
 
   def update
-    if @game.update(game_params)
+    if @game.update(game_params) && @score.update(score_params)
       redirect_to games_path, flash: { success: t('.success') }
     else
       render :edit
@@ -108,12 +109,12 @@ class GamesController < ApplicationController
     )
   end
 
-  # def game_relation_params
-  #   params.require(:game_relation).permit(:team_id, :game_id, :is_top, :win, :lose, :draw)
-  # end
-
   def set_game
     @game = Game.find(params[:id])
+  end
+
+  def set_score
+    @score = Score.find_by(game_id: params[:id])
   end
 
   def redirect_to_login
