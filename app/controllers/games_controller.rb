@@ -9,9 +9,9 @@ class GamesController < ApplicationController
 
   def create
     @game = my_team.games.build(game_params)
-    # @score = @game.build_score(score_params)
+    @score = @game.build_score
     if @game.save
-      redirect_to new_score_path, flash: { success: t('.success') }
+      redirect_to games_path, flash: { success: t('.success') }
     else
       render :new
     end
@@ -113,7 +113,7 @@ class GamesController < ApplicationController
   # end
 
   def set_game
-    @game = GameRecord.find(params[:id])
+    @game = Game.find(params[:id])
   end
 
   def redirect_to_login

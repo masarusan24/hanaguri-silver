@@ -1,0 +1,82 @@
+.container
+  = form_with(model: @score, local: true, url: choose_new_or_edit_score) do |form|
+    - if @score.errors.any?
+      #error_explanation
+        h2
+          =t :occurred, count: @score.errors.count
+        ul
+          - @score.errors.full_messages.each do |msg|
+            li
+              = msg
+    table.score.table.table-bordered.clickableTable[style="margin-top:0;margin-bottom:0px;cursor:pointer;" href="/scores/ZOZOfkxtGJnXQw"]
+      thead
+        tr
+          th.col-xs-2[style="padding-top:0;padding-bottom:0;"]
+          th[style="padding-top:0;padding-bottom:0;"]
+            | 1
+          th[style="padding-top:0;padding-bottom:0;"]
+            | 2
+          th[style="padding-top:0;padding-bottom:0;"]
+            | 3
+          th[style="padding-top:0;padding-bottom:0;"]
+            | 4
+          th[style="padding-top:0;padding-bottom:0;"]
+            | 5
+          th[style="padding-top:0;padding-bottom:0;"]
+            | 6
+          th[style="padding-top:0;padding-bottom:0;"]
+            | 7
+          th[style="padding-top:0;padding-bottom:0;"]
+            | 計
+      tbody
+        tr
+          td.team_top
+            | シルバー
+          td#t1.t1
+            = form.number_field :top_of_first, class: "form-inning"
+          td#t2.t2
+            = form.number_field :top_of_second, class: "form-inning"
+          td#t3.t3
+            = form.number_field :top_of_third, class: "form-inning"
+          td#t4.t4
+            = form.number_field :top_of_fourth, class: "form-inning"
+          td#t5.t5
+            = form.number_field :top_of_fifth, class: "form-inning"
+          td#t6.t6
+            = form.number_field :top_of_sixth, class: "form-inning"
+          td#t7.t7
+            = form.number_field :top_of_seventh, class: "form-inning"
+          td.t_total
+            |
+        tr
+          td.team_bottom
+            | ゴーゴー
+          td#b1.b1
+            = form.number_field :bottom_of_first, class: "form-inning"
+          td#b2.b2
+            = form.number_field :bottom_of_second, class: "form-inning"
+          td#b3.b3
+            = form.number_field :bottom_of_third, class: "form-inning"
+          td#b4.b4
+            = form.number_field :bottom_of_fourth, class: "form-inning"
+          td#b5.b5
+            = form.number_field :bottom_of_fifth, class: "form-inning"
+          td#b6.b6
+            = form.number_field :bottom_of_sixth, class: "form-inning"
+          td#b7.b7
+            = form.number_field :bottom_of_seventh, class: "form-inning"
+          td.b_total
+            |
+    / .score_date
+    /   = form.label :date
+    /   = form.text_field :date, class: "form-control date-picker", value: Date.today
+    / .score_ground
+    /   = form.label :ground
+    /   = form.text_field :ground, class: "form-control", value: "松原小学校"
+    / .score_team_top
+    /   = form.label :team_top
+    /   = form.text_field :team_top, class: "form-control", placeholder: "先行チーム"
+    / .score_team_bottom
+    /   = form.label :team_bottom
+    /   = form.text_field :team_bottom, class: "form-control", placeholder: "後攻チーム"
+    = form.submit t: :submit, class: "btn btn-default"

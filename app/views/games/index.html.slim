@@ -30,39 +30,39 @@ h1.title
              tbody
                tr
                  td.team_top
-                   | シルバー
+                   = game.team_top
                  td#t1.t1
-                   | 3
+                   = if game.score.nil? then 0 else game.score.top_of_first
                  td#t2.t2
-                   | 0
+                   = if game.score.nil? then 0 else game.score.top_of_second
                  td#t3.t3
-                   | 0
+                   = if game.score.nil? then 0 else game.score.top_of_third
                  td#t4.t4
-                   | x
+                   = if game.score.nil? then 0 else game.score.top_of_fourth
                  td#t5.t5
-                   | x
+                   = if game.score.nil? then 0 else game.score.top_of_fifth
                  td#t6.t6
-                   | x
+                   = if game.score.nil? then 0 else game.score.top_of_sixth
                  td#t7.t7
-                   | x
+                   = if game.score.nil? then 0 else game.score.top_of_seventh
                  td.t_total
                    | 3
                tr
                  td.team_bottom
-                   | ゴーゴー
+                   = game.team_bottom
                  td#b1.b1
-                   | 2
+                   = if game.score.nil? then 0 else game.score.bottom_of_first
                  td#b2.b2
-                   | 0
+                   = if game.score.nil? then 0 else game.score.bottom_of_second
                  td#b3.b3
-                   | 0
+                   = if game.score.nil? then 0 else game.score.bottom_of_third
                  td#b4.b4
-                   | x
+                   = if game.score.nil? then 0 else game.score.bottom_of_fourth
                  td#b5.b5
-                   | x
+                   = if game.score.nil? then 0 else game.score.bottom_of_fifth
                  td#b6.b6
-                   | x
+                   = if game.score.nil? then 0 else game.score.bottom_of_sixth
                  td#b7.b7
-                   | x
+                   = if game.score.nil? then 0 else game.score.bottom_of_seventh
                  td.b_total
                    | 2

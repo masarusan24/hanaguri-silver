@@ -1,4 +1,4 @@
-.container
+  .container
   = form_with(model: @game, local: true, url: choose_new_or_edit_game) do |form|
     - if @game.errors.any?
       #error_explanation
@@ -8,16 +8,71 @@
           - @game.errors.full_messages.each do |msg|
             li
               = msg
-    .game_date
+    .game_date.col-md-6
       = form.label :date
       = form.text_field :date, class: "form-control date-picker", value: Date.today
-    .game_ground
+    .game_ground.col-md-6
       = form.label :ground
       = form.text_field :ground, class: "form-control", value: "松原小学校"
-    .game_team_top
-      = form.label :team_top
-      = form.text_field :team_top, class: "form-control", placeholder: "先行チーム"
-    .game_team_bottom
-      = form.label :team_bottom
-      = form.text_field :team_bottom, class: "form-control", placeholder: "後攻チーム"
-    = form.submit t: :submit, class: "btn btn-default"
+    .score.col-md-12
+      table.score.table.table-bordered.clickableTable[style="margin-top:0;margin-bottom:0px;cursor:pointer;" href="/scores/ZOZOfkxtGJnXQw"]
+        thead
+          tr
+            th.col-xs-2[style="padding-top:0;padding-bottom:0;"]
+            th[style="padding-top:0;padding-bottom:0;"]
+              | 1
+            th[style="padding-top:0;padding-bottom:0;"]
+              | 2
+            th[style="padding-top:0;padding-bottom:0;"]
+              | 3
+            th[style="padding-top:0;padding-bottom:0;"]
+              | 4
+            th[style="padding-top:0;padding-bottom:0;"]
+              | 5
+            th[style="padding-top:0;padding-bottom:0;"]
+              | 6
+            th[style="padding-top:0;padding-bottom:0;"]
+              | 7
+            th[style="padding-top:0;padding-bottom:0;"]
+              | 計
+        tbody
+        = fields_for @game.score do |score|
+          tr
+            td.team_top
+              = form.text_field :team_top, class: "form-control", placeholder: "先行チーム", tabindex: 1
+            td#t1.t1
+              = score.number_field :top_of_first, class: "form-inning", tabindex: 3, min: 0
+            td#t2.t2
+              = score.number_field :top_of_second, class: "form-inning", tabindex: 5, min: 0
+            td#t3.t3
+              = score.number_field :top_of_third, class: "form-inning", tabindex: 7, min: 0
+            td#t4.t4
+              = score.number_field :top_of_fourth, class: "form-inning", tabindex: 9, min: 0
+            td#t5.t5
+              = score.number_field :top_of_fifth, class: "form-inning", tabindex: 11, min: 0
+            td#t6.t6
+              = score.number_field :top_of_sixth, class: "form-inning", tabindex: 13, min: 0
+            td#t7.t7
+              = score.number_field :top_of_seventh, class: "form-inning", tabindex: 15, min: 0
+            td.t_total
+              |
+          tr
+            td.team_bottom
+              = form.text_field :team_bottom, class: "form-control", placeholder: "後攻チーム", tabindex: 2
+            td#b1.b1
+              = score.number_field :bottom_of_first, class: "form-inning", tabindex: 4, min: 0
+            td#b2.b2
+              = score.number_field :bottom_of_second, class: "form-inning", tabindex: 6, min: 0
+            td#b3.b3
+              = score.number_field :bottom_of_third, class: "form-inning", tabindex: 8, min: 0
+            td#b4.b4
+              = score.number_field :bottom_of_fourth, class: "form-inning", tabindex: 10, min: 0
+            td#b5.b5
+              = score.number_field :bottom_of_fifth, class: "form-inning", tabindex: 12, min: 0
+            td#b6.b6
+              = score.number_field :bottom_of_sixth, class: "form-inning", tabindex: 14, min: 0
+            td#b7.b7
+              = score.number_field :bottom_of_seventh, class: "form-inning", tabindex: 16, min: 0
+            td.b_total
+              |
+      = form.submit t: :submit, class: "btn btn-default"

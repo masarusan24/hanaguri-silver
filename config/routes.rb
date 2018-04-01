@@ -10,7 +10,11 @@ Rails.application.routes.draw do
   resources :contacts
   resources :users, param: :name
   resources :sessions, only: %i[new create destroy]
-  resources :games
+  resources :games do
+    collection do
+      post :score
+    end
+  end
   resources :scores, only: %i[new create edit update destroy]
   resources :batting_records
   resources :pitching_records
