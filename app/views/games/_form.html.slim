@@ -1,4 +1,5 @@
   .container
+  / = form_for @game sdo |form|
   = form_with(model: @game, local: true, url: choose_new_or_edit_game) do |form|
     - if @game.errors.any?
       #error_explanation
@@ -36,7 +37,7 @@
             th[style="padding-top:0;padding-bottom:0;"]
               | 計
         tbody
-        = fields_for @game.score do |score|
+        = fields_for :score do |score|
           tr
             td.team_top
               = form.text_field :team_top, class: "form-control", placeholder: "先行チーム", tabindex: 1

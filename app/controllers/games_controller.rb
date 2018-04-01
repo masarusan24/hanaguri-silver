@@ -10,7 +10,7 @@ class GamesController < ApplicationController
   def create
     @game = my_team.games.build(game_params)
     @score = @game.build_score
-    if @game.save
+    if @game.save || @score.save
       redirect_to games_path, flash: { success: t('.success') }
     else
       render :new
