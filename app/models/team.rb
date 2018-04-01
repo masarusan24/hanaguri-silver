@@ -1,5 +1,5 @@
 class Team < ApplicationRecord
-  has_many :members, dependent: :destroy
+  has_many :members
   # has_many :game_relation, dependent: :destroy
   # has_many :games, through: :game_relation, source: :game_record
   has_many :games

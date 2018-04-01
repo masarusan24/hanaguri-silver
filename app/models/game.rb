@@ -4,7 +4,7 @@ class Game < ApplicationRecord
   accepts_nested_attributes_for :score
 
   # belongs_to Team model
-  belongs_to :team, dependent: :destroy
+  belongs_to :team
 
   # multiple association with BattingRecord model
   # has_many :batting_records, dependent: :destroy
