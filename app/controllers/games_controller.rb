@@ -13,6 +13,8 @@ class GamesController < ApplicationController
     @score = @game.build_score(score_params)
     @game.runs = get_total_score(@game.bat_first)
     @game.runs_allowed = get_total_score(!@game.bat_first)
+    @game.is_win = win?
+    @game.is_draw = draw?
     if @game.save
       redirect_to games_path, flash: { success: t('.success') }
     else
@@ -30,6 +32,8 @@ class GamesController < ApplicationController
   def update
     @game.runs = get_total_score(@game.bat_first)
     @game.runs_allowed = get_total_score(!@game.bat_first)
+    @game.is_win = win?
+    @game.is_draw = draw?
     if @game.update(game_params) && @score.update(score_params)
       redirect_to games_path, flash: { success: t('.success') }
     else
@@ -138,5 +142,13 @@ class GamesController < ApplicationController
       score += value.to_i if key.include?(top_or_bottom)
     end
     score
+  end
+
+  def win?
+    @game.runs > @game.runs_allowed
+  end
+
+  def draw?
+    @game.runs == @game.runs_allowed
   end
 end
