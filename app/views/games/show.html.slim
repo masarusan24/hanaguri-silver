@@ -1,15 +1,71 @@
-h1.title
-  =t '.title'
 .container
-  .row
-    .col-xs-12.col-md-12
-      .team-panel
-        = @team.team_name
-        p
-        = @team.team_short_name
-        p
-        = @team.home_ground
-        p
-        = @team.overview
-        p
-        = image_tag @team.logo
+  .game_date.col-md-4
+    | 試合日 :
+    = @game.date
+  .game_ground.col-md-4
+    | グラウンド :
+    = @game.ground
+  .score.col-md-12
+    table.score.table.table-bordered.clickableTable[style="margin-top:0;margin-bottom:0px;cursor:pointer;" href="/scores/ZOZOfkxtGJnXQw"]
+      thead
+        tr
+          th.col-xs-2[style="padding-top:0;padding-bottom:0;"]
+          th[style="padding-top:0;padding-bottom:0;"]
+            | 1
+          th[style="padding-top:0;padding-bottom:0;"]
+            | 2
+          th[style="padding-top:0;padding-bottom:0;"]
+            | 3
+          th[style="padding-top:0;padding-bottom:0;"]
+            | 4
+          th[style="padding-top:0;padding-bottom:0;"]
+            | 5
+          th[style="padding-top:0;padding-bottom:0;"]
+            | 6
+          th[style="padding-top:0;padding-bottom:0;"]
+            | 7
+          th[style="padding-top:0;padding-bottom:0;"]
+            | 計
+      tbody
+        tr
+          td.team_top
+            = @game.team_top
+          td#t1.t1
+            = @score.top_of_first
+          td#t2.t2
+            = @score.top_of_second
+          td#t3.t3
+            = @score.top_of_third
+          td#t4.t4
+            = @score.top_of_fourth
+          td#t5.t5
+            = @score.top_of_fifth
+          td#t6.t6
+            = @score.top_of_sixth
+          td#t7.t7
+            = @score.top_of_seventh
+          td.t_total
+            = @game.bat_first ? @game.runs : @game.runs_allowed
+        tr
+          td.team_bottom
+            = @game.team_bottom
+          td#b1.b1
+            = @score.bottom_of_first
+          td#b2.b2
+            = @score.bottom_of_second
+          td#b3.b3
+            = @score.bottom_of_third
+          td#b4.b4
+            = @score.bottom_of_fourth
+          td#b5.b5
+            = @score.bottom_of_fifth
+          td#b6.b6
+            = @score.bottom_of_sixth
+          td#b7.b7
+            = @score.bottom_of_seventh
+          td.b_total
+            = !@game.bat_first ? @game.runs : @game.runs_allowed
+    p
+      | 戦評
+    p
+      = @game.overview

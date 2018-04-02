@@ -7,9 +7,6 @@ h1.title
         .game-panel
            = game.date
            = game.ground
-           - if logged_in?
-             = link_to t(:edit), edit_game_path(game.id), class: "btn btn-link btn-panel"
-             = link_to t(:delete), game_path(game.id), method: :delete, data: { confirm: t(:confirm_detele) }, class: "btn btn-link btn-panel"
            table.score.table.table-bordered.clickableTable[style="margin-top:0;margin-bottom:0px;cursor:pointer;" href="/scores/ZOZOfkxtGJnXQw"]
              thead
                tr
@@ -69,3 +66,7 @@ h1.title
                    = if game.score.nil? then 0 else game.score.bottom_of_seventh
                  td.b_total
                    = !game.bat_first ? game.runs : game.runs_allowed
+           - if logged_in?
+             = link_to t(:edit), edit_game_path(game.id), class: "btn btn-link btn-panel"
+             = link_to t(:show), game_path(game.id), class: "btn btn-link btn-panel"
+             = link_to t(:delete), game_path(game.id), method: :delete, data: { confirm: t(:confirm_detele) }, class: "btn btn-link btn-panel"
