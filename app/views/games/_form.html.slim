@@ -11,6 +11,7 @@
     .game_date.col-md-4
       = form.label :date
       = form.text_field :date, class: "form-control date-picker", value: Date.today
+      = form.hidden_field :year, class: "form-control date-picker", value: Date.today.year
     .game_ground.col-md-4
       = form.label :ground
       = form.text_field :ground, class: "form-control", value: "松原小学校"
@@ -78,4 +79,7 @@
               = score.number_field :bottom_of_seventh, class: "form-inning", tabindex: 16, min: 0
             td.b_total
               |
+    .game_overview.col-md-12
+      = form.label :overview
+      = form.text_area :overview, class: "form-control", placeholder: "戦評"
       = form.submit t: :submit, class: "btn btn-default"
