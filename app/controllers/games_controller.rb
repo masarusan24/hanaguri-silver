@@ -11,6 +11,8 @@ class GamesController < ApplicationController
   def create
     @game = my_team.games.build(game_params)
     @score = @game.build_score(score_params)
+    @game.runs = get_total_score(@game.bat_first)
+    @game.runs_allowed = get_total_score(!@game.bat_first)
     if @game.save
       redirect_to games_path, flash: { success: t('.success') }
     else
@@ -26,6 +28,8 @@ class GamesController < ApplicationController
   end
 
   def update
+    @game.runs = get_total_score(@game.bat_first)
+    @game.runs_allowed = get_total_score(!@game.bat_first)
     if @game.update(game_params) && @score.update(score_params)
       redirect_to games_path, flash: { success: t('.success') }
     else
@@ -50,6 +54,12 @@ class GamesController < ApplicationController
       :team_top,
       :team_bottom,
       :ground,
+      :bat_first,
+      :runs,
+      :runs_allowed,
+      :is_win,
+      :is_draw,
+      :overview,
       score_attributes: [
         :game_id,
         :top_of_first,
@@ -119,5 +129,14 @@ class GamesController < ApplicationController
 
   def redirect_to_login
     redirect_to new_session_path, flash: { warning: t(:please_login) } unless logged_in?
+  end
+
+  def get_total_score(bat_first)
+    top_or_bottom = bat_first ? 'top_of' : 'bottom_of'
+    score = 0
+    params[:score].each do |key, value|
+      score += value.to_i if key.include?(top_or_bottom)
+    end
+    score
   end
 end

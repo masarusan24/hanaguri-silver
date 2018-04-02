@@ -36,50 +36,36 @@ h1.title
                    = game.team_top
                  td#t1.t1
                    = if game.score.nil? then 0 else game.score.top_of_first
-                   - score_top ||= game.score.top_of_first.to_i
                  td#t2.t2
                    = if game.score.nil? then 0 else game.score.top_of_second
-                   - score_top += game.score.top_of_second.to_i
                  td#t3.t3
                    = if game.score.nil? then 0 else game.score.top_of_third
-                   - score_top += game.score.top_of_third.to_i
                  td#t4.t4
                    = if game.score.nil? then 0 else game.score.top_of_fourth
-                   - score_top += game.score.top_of_fourth.to_i
                  td#t5.t5
                    = if game.score.nil? then 0 else game.score.top_of_fifth
-                   - score_top += game.score.top_of_fifth.to_i
                  td#t6.t6
                    = if game.score.nil? then 0 else game.score.top_of_sixth
-                   - score_top += game.score.top_of_sixth.to_i
                  td#t7.t7
                    = if game.score.nil? then 0 else game.score.top_of_seventh
-                   - score_top += game.score.top_of_seventh.to_i
                  td.t_total
-                   = score_top
+                   = game.bat_first ? game.runs : game.runs_allowed
                tr
                  td.team_bottom
                    = game.team_bottom
                  td#b1.b1
                    = if game.score.nil? then 0 else game.score.bottom_of_first
-                   - score_bottom ||= game.score.bottom_of_first.to_i
                  td#b2.b2
                    = if game.score.nil? then 0 else game.score.bottom_of_second
-                   - score_bottom += game.score.bottom_of_second.to_i
                  td#b3.b3
                    = if game.score.nil? then 0 else game.score.bottom_of_third
-                   - score_bottom += game.score.bottom_of_third.to_i
                  td#b4.b4
                    = if game.score.nil? then 0 else game.score.bottom_of_fourth
-                   - score_bottom += game.score.bottom_of_fourth.to_i
                  td#b5.b5
                    = if game.score.nil? then 0 else game.score.bottom_of_fifth
-                   - score_bottom += game.score.bottom_of_fifth.to_i
                  td#b6.b6
                    = if game.score.nil? then 0 else game.score.bottom_of_sixth
-                   - score_bottom += game.score.bottom_of_sixth.to_i
                  td#b7.b7
                    = if game.score.nil? then 0 else game.score.bottom_of_seventh
-                   - score_bottom += game.score.bottom_of_seventh.to_i
                  td.b_total
-                   = score_bottom
+                   = !game.bat_first ? game.runs : game.runs_allowed
