@@ -4,12 +4,60 @@ h1.title
   .row
     .col-xs-12.col-md-12
       .team-panel
+        = image_tag @team.logo
+        p
         = @team.team_name
-        p
-        = @team.team_short_name
-        p
-        = @team.home_ground
         p
         = @team.overview
         p
-        = image_tag @team.logo
+        = "チーム成績(#{Date.today.year}年)"
+        p
+        table.score.table
+          thead
+            tr
+              th.col-xs-2[style="padding-top:0;padding-bottom:0;"]
+                | チーム名
+              th[style="padding-top:0;padding-bottom:0;"]
+                | 試合数
+              th[style="padding-top:0;padding-bottom:0;"]
+                | 勝
+              th[style="padding-top:0;padding-bottom:0;"]
+                | 敗
+              th[style="padding-top:0;padding-bottom:0;"]
+                | 分
+              th[style="padding-top:0;padding-bottom:0;"]
+                | 勝率
+              th[style="padding-top:0;padding-bottom:0;"]
+                | 総得点
+              th[style="padding-top:0;padding-bottom:0;"]
+                | 総失点
+              th[style="padding-top:0;padding-bottom:0;"]
+                | 平均得点
+              th[style="padding-top:0;padding-bottom:0;"]
+                | 平均失点
+              th[style="padding-top:0;padding-bottom:0;"]
+                | 得失点差
+          tbody
+            tr
+              td
+                = @team.team_name
+              td
+                = @team.games.count
+              td
+                = wins
+              td
+                = loses
+              td
+                = draws
+              td
+                = win_rate
+              td
+                = total_runs
+              td
+                = total_runs_allowed
+              td
+                = total_runs / @team.games.count.to_f
+              td
+                = total_runs_allowed / @team.games.count.to_f
+              td
+                = total_runs - total_runs_allowed

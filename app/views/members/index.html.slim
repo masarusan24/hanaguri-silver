@@ -14,26 +14,10 @@ h1.title
         h3
           = link_to member.full_name, member_path(member.name)
           small
-            / = member.position
             | #
             = member.uniform_number
         p
           = member.position
-          / | What does this team member to? Keep it short! This is also a great spot for social links!
         - if logged_in?
           = link_to t(:edit), edit_member_path(member.name), class: "btn btn-link"
           = link_to t(:delete), member_path(member.name), method: :delete, data: { confirm: t(:confirm_detele) }, class: "btn btn-link"
-
-      / .col-xs-12.col-md-6.member-panel
-      /   p
-      /     = member.name
-      /   p
-      /     = member.email
-      /   .member-link
-      /     = link_to t(:detail), member_path(member.name), class: "btn btn-default"
-      /     - if member == current_member
-      /       = link_to t(:edit), edit_member_path(member.name), class: "btn btn-info"
-      /       = link_to t(:delete), member_path(member.id), method: :delete, data: { confirm: t(:confirm_detele) }, class: "btn btn-danger"
-      /     - else
-      /       = link_to t(:edit), '', class: "btn btn-info", disabled: "disabled"
-      /       = link_to t(:delete), '', class: "btn btn-danger", disabled: "disabled"
