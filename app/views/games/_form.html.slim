@@ -15,9 +15,9 @@
     .game_ground.col-md-4
       = form.label :ground
       = form.text_field :ground, class: "form-control", value: "松原小学校"
-    .game_ground.col-md-4
+    .game_bat_first.col-md-4
       = form.label :bat_first
-      = form.select :bat_first, [["先攻", :true],["後攻", :false]], class: "form-control"
+      = form.select :bat_first, [["先攻", :true],["後攻", :false]], {}, { class: "form-control" }
     .score.col-md-12
       table.score.table.table-bordered.clickableTable[style="margin-top:0;margin-bottom:0px;cursor:pointer;" href="/scores/ZOZOfkxtGJnXQw"]
         thead
