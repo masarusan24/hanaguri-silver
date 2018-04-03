@@ -8,7 +8,7 @@ h1.title
         p
         = @team.team_name
         p
-        = @team.overview
+        = simple_format(h @team.overview)
         p
         = "チーム成績(#{Date.today.year}年)"
         p
