@@ -8,6 +8,7 @@ h1.title
     - @members.each do |member|
       .col-lg-4.col-sm-6.text-center.mb-4
         - if member.image?
+          - binding.pry
           = image_tag member.image, class: "rounded-circle img-fluid d-block mx-auto"
         - else
           = image_tag (asset_path "noimage.png"), class: "rounded-circle img-fluid d-block mx-auto"
