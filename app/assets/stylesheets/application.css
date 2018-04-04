@@ -53,6 +53,10 @@
    margin: 10px 0;
  }
 
+ .btn.btn-menu {
+   width: 100%;
+ }
+
  .picture-panel {
    text-align: center;
    border: solid #b2b5b5;
