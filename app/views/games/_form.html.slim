@@ -11,7 +11,7 @@
     .game_date.col-md-4
       = form.label :date
       = form.text_field :date, class: "form-control date-picker", value: Date.today
-      = form.hidden_field :year, class: "form-control date-picker", value: Date.today.year
+      / = form.hidden_field :year, value: Date.today.year
     .game_ground.col-md-4
       = form.label :ground
       = form.text_field :ground, class: "form-control", value: "松原小学校"

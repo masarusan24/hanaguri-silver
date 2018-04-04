@@ -11,10 +11,7 @@ class GamesController < ApplicationController
   def create
     @game = my_team.games.build(game_params)
     @score = @game.build_score(score_params)
-    @game.runs = get_total_score(@game.bat_first)
-    @game.runs_allowed = get_total_score(!@game.bat_first)
-    @game.is_win = win?
-    @game.is_draw = draw?
+    set_other_game_params
     if @game.save
       redirect_to games_path, flash: { success: t('.success') }
     else
@@ -23,17 +20,15 @@ class GamesController < ApplicationController
   end
 
   def index
-    @games = Game.where(year: Date.today.year)
+    @year ||= params[:year] || Date.today.year
+    @games = Game.where(year: @year)
   end
 
   def edit
   end
 
   def update
-    @game.runs = get_total_score(@game.bat_first)
-    @game.runs_allowed = get_total_score(!@game.bat_first)
-    @game.is_win = win?
-    @game.is_draw = draw?
+    set_other_game_params
     if @game.update(game_params) && @score.update(score_params)
       redirect_to games_path, flash: { success: t('.success') }
     else
@@ -150,5 +145,17 @@ class GamesController < ApplicationController
 
   def draw?
     @game.runs == @game.runs_allowed
+  end
+
+  def set_other_game_params
+    @game.year = params[:game][:date].to_date.year
+    @game.runs = get_total_score(@game.bat_first)
+    @game.runs_allowed = get_total_score(!@game.bat_first)
+    @game.is_win = win?
+    @game.is_draw = draw?
+  end
+
+  def default_url_options(options = { year: Date.today.year })
+    { locale: I18n.locale }.merge options
   end
 end
