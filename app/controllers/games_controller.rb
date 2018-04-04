@@ -23,7 +23,7 @@ class GamesController < ApplicationController
   end
 
   def index
-    @games = Game.all
+    @games = Game.where(year: Date.today.year)
   end
 
   def edit

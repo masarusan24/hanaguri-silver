@@ -1,72 +1,73 @@
 h1.title
   = t '.title'
 .container
+  = date_select :year, :year, { discard_month: true }
   .row
     - @games.each do |game|
       .col-xs-12.col-md-6
         .game-panel
-           = game.date
-           = game.ground
-           table.score.table.table-bordered.clickableTable[style="margin-top:0;margin-bottom:0px;cursor:pointer;" href="/scores/ZOZOfkxtGJnXQw"]
-             thead
-               tr
-                 th.col-xs-2[style="padding-top:0;padding-bottom:0;"]
-                 th[style="padding-top:0;padding-bottom:0;"]
-                   | 1
-                 th[style="padding-top:0;padding-bottom:0;"]
-                   | 2
-                 th[style="padding-top:0;padding-bottom:0;"]
-                   | 3
-                 th[style="padding-top:0;padding-bottom:0;"]
-                   | 4
-                 th[style="padding-top:0;padding-bottom:0;"]
-                   | 5
-                 th[style="padding-top:0;padding-bottom:0;"]
-                   | 6
-                 th[style="padding-top:0;padding-bottom:0;"]
-                   | 7
-                 th[style="padding-top:0;padding-bottom:0;"]
-                   | 計
-             tbody
-               tr
-                 td.team_top
-                   = game.team_top
-                 td#t1.t1
-                   = if game.score.nil? then 0 else game.score.top_of_first
-                 td#t2.t2
-                   = if game.score.nil? then 0 else game.score.top_of_second
-                 td#t3.t3
-                   = if game.score.nil? then 0 else game.score.top_of_third
-                 td#t4.t4
-                   = if game.score.nil? then 0 else game.score.top_of_fourth
-                 td#t5.t5
-                   = if game.score.nil? then 0 else game.score.top_of_fifth
-                 td#t6.t6
-                   = if game.score.nil? then 0 else game.score.top_of_sixth
-                 td#t7.t7
-                   = if game.score.nil? then 0 else game.score.top_of_seventh
-                 td.t_total
-                   = game.bat_first ? game.runs : game.runs_allowed
-               tr
-                 td.team_bottom
-                   = game.team_bottom
-                 td#b1.b1
-                   = if game.score.nil? then 0 else game.score.bottom_of_first
-                 td#b2.b2
-                   = if game.score.nil? then 0 else game.score.bottom_of_second
-                 td#b3.b3
-                   = if game.score.nil? then 0 else game.score.bottom_of_third
-                 td#b4.b4
-                   = if game.score.nil? then 0 else game.score.bottom_of_fourth
-                 td#b5.b5
-                   = if game.score.nil? then 0 else game.score.bottom_of_fifth
-                 td#b6.b6
-                   = if game.score.nil? then 0 else game.score.bottom_of_sixth
-                 td#b7.b7
-                   = if game.score.nil? then 0 else game.score.bottom_of_seventh
-                 td.b_total
-                   = !game.bat_first ? game.runs : game.runs_allowed
-           = link_to t(:show), game_path(game.id), class: "btn btn-link btn-panel"
-           - if logged_in?
-             = link_to t(:edit), edit_game_path(game.id), class: "btn btn-link btn-panel"
-             = link_to t(:delete), game_path(game.id), method: :delete, data: { confirm: t(:confirm_detele) }, class: "btn btn-link btn-panel"
+          = game.date
+          = game.ground
+          table.score.table.table-bordered.clickableTable[style="margin-top:0;margin-bottom:0px;cursor:pointer;" href="/scores/ZOZOfkxtGJnXQw"]
+            thead
+              tr
+                th.col-xs-2[style="padding-top:0;padding-bottom:0;"]
+                th[style="padding-top:0;padding-bottom:0;"]
+                  | 1
+                th[style="padding-top:0;padding-bottom:0;"]
+                  | 2
+                th[style="padding-top:0;padding-bottom:0;"]
+                  | 3
+                th[style="padding-top:0;padding-bottom:0;"]
+                  | 4
+                th[style="padding-top:0;padding-bottom:0;"]
+                  | 5
+                th[style="padding-top:0;padding-bottom:0;"]
+                  | 6
+                th[style="padding-top:0;padding-bottom:0;"]
+                  | 7
+                th[style="padding-top:0;padding-bottom:0;"]
+                  | 計
+            tbody
+              tr
+                td.team_top
+                  = game.team_top
+                td#t1.t1
+                  = if game.score.nil? then 0 else game.score.top_of_first
+                td#t2.t2
+                  = if game.score.nil? then 0 else game.score.top_of_second
+                td#t3.t3
+                  = if game.score.nil? then 0 else game.score.top_of_third
+                td#t4.t4
+                  = if game.score.nil? then 0 else game.score.top_of_fourth
+                td#t5.t5
+                  = if game.score.nil? then 0 else game.score.top_of_fifth
+                td#t6.t6
+                  = if game.score.nil? then 0 else game.score.top_of_sixth
+                td#t7.t7
+                  = if game.score.nil? then 0 else game.score.top_of_seventh
+                td.t_total
+                  = game.bat_first ? game.runs : game.runs_allowed
+              tr
+                td.team_bottom
+                  = game.team_bottom
+                td#b1.b1
+                  = if game.score.nil? then 0 else game.score.bottom_of_first
+                td#b2.b2
+                  = if game.score.nil? then 0 else game.score.bottom_of_second
+                td#b3.b3
+                  = if game.score.nil? then 0 else game.score.bottom_of_third
+                td#b4.b4
+                  = if game.score.nil? then 0 else game.score.bottom_of_fourth
+                td#b5.b5
+                  = if game.score.nil? then 0 else game.score.bottom_of_fifth
+                td#b6.b6
+                  = if game.score.nil? then 0 else game.score.bottom_of_sixth
+                td#b7.b7
+                  = if game.score.nil? then 0 else game.score.bottom_of_seventh
+                td.b_total
+                  = !game.bat_first ? game.runs : game.runs_allowed
+          = link_to t(:show), game_path(game.id), class: "btn btn-link btn-panel"
+          - if logged_in?
+            = link_to t(:edit), edit_game_path(game.id), class: "btn btn-link btn-panel"
+            = link_to t(:delete), game_path(game.id), method: :delete, data: { confirm: t(:confirm_detele) }, class: "btn btn-link btn-panel"

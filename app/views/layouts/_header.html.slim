@@ -19,6 +19,8 @@ header.navbar.navbar-inverse.navbar-fixed-top
         li
           = link_to t(:game_list), games_path
         li
+          = link_to t(:team_record), team_path(:silver)
+        li
           = link_to t(:contact), new_contact_path
         - if logged_in?
           li
