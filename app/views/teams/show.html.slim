@@ -10,13 +10,15 @@ h1.title
         p
         = simple_format(h @team.overview)
         p
-        = "チーム成績(#{Date.today.year}年)"
-        p
+        = "チーム成績"
+        .year-panel
+          = link_to '<< ', team_path(:silver, year: @year.to_i - 1)
+          = @year
+          | 年度
+          = link_to ' >>', team_path(:silver, year: @year.to_i + 1)
         table.score.table
           thead
             tr
-              th.col-xs-2[style="padding-top:0;padding-bottom:0;"]
-                | チーム名
               th[style="padding-top:0;padding-bottom:0;"]
                 | 試合数
               th[style="padding-top:0;padding-bottom:0;"]
@@ -40,24 +42,22 @@ h1.title
           tbody
             tr
               td
-                = @team.team_name
+                = @team.games.where(year: @year).count
               td
-                = @team.games.count
+                = wins(@year)
               td
-                = wins
+                = loses(@year)
               td
-                = loses
+                = draws(@year)
               td
-                = draws
+                = win_rate(@year)
               td
-                = win_rate
+                = total_runs(@year)
               td
-                = total_runs
+                = total_runs_allowed(@year)
               td
-                = total_runs_allowed
+                = total_runs(@year) / @team.games.where(year: @year).count.to_f
               td
-                = total_runs / @team.games.count.to_f
+                = total_runs_allowed(@year) / @team.games.where(year: @year).count.to_f
               td
-                = total_runs_allowed / @team.games.count.to_f
-              td
-                = total_runs - total_runs_allowed
+                = total_runs(@year) - total_runs_allowed(@year)

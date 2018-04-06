@@ -21,7 +21,7 @@ class GamesController < ApplicationController
 
   def index
     @year ||= params[:year] || Date.today.year
-    @games = Game.where(year: @year)
+    @games = Game.where(year: @year).order(:date)
   end
 
   def edit
