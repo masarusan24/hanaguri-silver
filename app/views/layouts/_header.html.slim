@@ -15,7 +15,7 @@ header.navbar.navbar-inverse.navbar-fixed-top
     #gnavi.collapse.navbar-collapse
       ul.nav.navbar-nav
         li
-          = link_to t(:team_list), members_path
+          = link_to t(:member_list), members_path
         li
           = link_to t(:game_list), games_path
         li
@@ -26,7 +26,7 @@ header.navbar.navbar-inverse.navbar-fixed-top
           li
             = link_to t(:admin_menu), admin_menu_path
           li
-            = link_to t(:logout), session_path(current_user.id), method: :delete
+            = link_to t(:log_out), session_path(current_user.id), method: :delete
         - else
           li
-            = link_to t(:login), new_session_path
+            = link_to t(:log_in), new_session_path

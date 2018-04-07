@@ -205,9 +205,11 @@ ja:
   log_in: ログイン
   log_out: ログアウト
   sign_up: 新規選手登録
-  team_list: 選手一覧
-  user_list: 選手一覧
-  picture_list: 投稿一覧
+  team_list: チーム一覧
+  member_list: 選手一覧
+  game_list: 試合一覧
+  admin_menu: 管理者メニュー
+  team_record: チーム成績
   contact: お問合わせ
   contact_form: お問い合わせフォーム
   title: タイトル
