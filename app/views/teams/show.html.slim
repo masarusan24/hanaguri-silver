@@ -1,20 +1,17 @@
 h1.title
-  =t '.title'
+  = @team.team_name
 .container
   .row
     .col-xs-12.col-md-12
       .team-panel
         = image_tag @team.logo
         p
-        = @team.team_name
-        p
         = simple_format(h @team.overview)
         p
-        = "チーム成績"
+        = t(:team_record)
         .year-panel
           = link_to '<< ', team_path(:silver, year: @year.to_i - 1)
-          = @year
-          | 年度
+          = t :fy, year: @year
           = link_to ' >>', team_path(:silver, year: @year.to_i + 1)
         table.score.table
           thead

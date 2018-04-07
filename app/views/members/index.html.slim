@@ -3,8 +3,6 @@ h1.title
 .container
   .row
     .col-lg-12
-      h2.my-4
-        | Our Team
     - @members.each do |member|
       .col-lg-4.col-sm-6.text-center.mb-4
         - if member.image?

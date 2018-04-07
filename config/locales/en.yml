@@ -6,6 +6,12 @@ en:
   confirm_detele: delete it?
   email_notification: Photo has been posted
   post_link: link to post
+  fy: "FY %{year}"
+  date: Date
+  ground: Ground
+  team: Team
+  total: R
+  overview: OverView
   teams:
     new:
       title: Team create
@@ -26,14 +32,14 @@ en:
       title: Administrator Menu
   members:
     new:
-      title: Sign up
+      title: New Member
     edit:
-      title: Edit User Info
+      title: Edit Member Info
     show:
       title:  "%{user}'s page"
       favorite_Pictures: Favorite Pictures
     index:
-      title: User List
+      title: Member List
     create:
       success: Created a User
     update:

@@ -11,11 +11,9 @@
     .game_date.col-md-4
       = form.label :date
       = form.text_field :date, class: "form-control date-picker"
-      / = form.text_field :date, class: "form-control date-picker", value: Date.today
     .game_ground.col-md-4
       = form.label :ground
       = form.text_field :ground, class: "form-control"
-      / = form.text_field :ground, class: "form-control", value: "松原小学校"
     .game_bat_first.col-md-4
       = form.label :bat_first
       = form.select :bat_first, [["先攻", :true],["後攻", :false]], {}, { class: "form-control" }
@@ -24,6 +22,7 @@
         thead
           tr
             th.col-xs-2[style="padding-top:0;padding-bottom:0;"]
+              = t(:team)
             th[style="padding-top:0;padding-bottom:0;"]
               | 1
             th[style="padding-top:0;padding-bottom:0;"]
@@ -39,7 +38,7 @@
             th[style="padding-top:0;padding-bottom:0;"]
               | 7
             th[style="padding-top:0;padding-bottom:0;"]
-              | 計
+              = t(:total)
         tbody
         = fields_for :score do |score|
           tr

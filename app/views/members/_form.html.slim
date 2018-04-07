@@ -14,8 +14,6 @@
           - @member.errors.full_messages.each do |msg|
             li
               = msg
-    h1
-      =t '.title'
     .member_name
       = form.label :name
       = form.text_field :name, class: "form-control", placeholder: "name"

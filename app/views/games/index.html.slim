@@ -3,8 +3,7 @@ h1.title
 .container
   .year-panel
     = link_to '<< ', games_path(year: @year.to_i - 1)
-    = @year
-    | 年度
+    = t :fy, year: @year
     = link_to ' >>', games_path(year: @year.to_i + 1)
   .row
     - @games.each do |game|
@@ -16,6 +15,7 @@ h1.title
             thead
               tr
                 th.col-xs-2[style="padding-top:0;padding-bottom:0;"]
+                  = t(:team)
                 th[style="padding-top:0;padding-bottom:0;"]
                   | 1
                 th[style="padding-top:0;padding-bottom:0;"]
@@ -31,7 +31,7 @@ h1.title
                 th[style="padding-top:0;padding-bottom:0;"]
                   | 7
                 th[style="padding-top:0;padding-bottom:0;"]
-                  | 計
+                  = t(:total)
             tbody
               tr
                 td.team_top

@@ -150,6 +150,17 @@ ja:
         ground: グラウンド
         bat_first: 先攻・後攻
         overview: 戦評
+      member:
+        name: 選手ID
+        full_name: 氏名
+        uniform_number: 背番号
+        position: ポジション
+        image: 画像
+      session:
+        name: ユーザID
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: 確認用パスワード
   number:
     currency:
       format:
@@ -236,6 +247,12 @@ ja:
   confirm_detele: 削除しますか？
   email_notification: 写真を投稿しました
   post_link: 投稿内容はこちら
+  fy: "%{year} 年度"
+  date: 日付
+  ground: グラウンド
+  team: チーム
+  total: 計
+  overview: 戦評
   teams:
     new:
       title: 新規チーム登録
@@ -276,7 +293,7 @@ ja:
     edit:
       title: スコア編集
     show:
-       title: 試合詳細
+      title: 試合詳細
     index:
       title: 試合一覧
     confirm:
