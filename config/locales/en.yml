@@ -21,6 +21,9 @@ en:
       success: Edited a Team Info
     destroy:
       success: Deleted a Team
+  users:
+    admin:
+      title: Administrator Menu
   members:
     new:
       title: Sign up

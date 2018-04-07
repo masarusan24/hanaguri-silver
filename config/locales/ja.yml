@@ -209,6 +209,10 @@ ja:
   member_list: 選手一覧
   game_list: 試合一覧
   admin_menu: 管理者メニュー
+  member_manage: 選手管理
+  new_member: 新規選手登録
+  game_manage: 試合管理
+  new_game: 新規試合登録
   team_record: チーム成績
   contact: お問合わせ
   contact_form: お問い合わせフォーム
@@ -241,6 +245,9 @@ ja:
       success: チーム情報を編集しました
     destroy:
       success: チームを削除しました
+  users:
+    admin:
+      title: 管理者メニュー
   members:
     new:
       title: 新規選手登録
