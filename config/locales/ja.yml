@@ -144,6 +144,12 @@ ja:
       create: 登録する
       submit: 保存する
       update: 更新する
+    label:
+      game:
+        date: 日付
+        ground: グラウンド
+        bat_first: 先攻・後攻
+        overview: 戦評
   number:
     currency:
       format:
@@ -264,23 +270,23 @@ ja:
       success: 選手情報を編集しました
     destroy:
       success: 選手を削除しました
-  pictures:
+  games:
     new:
-      title: 写真を投稿する
+      title: 新規試合登録
     edit:
-      title: 投稿を編集する
+      title: スコア編集
     show:
-       title: 詳細
+       title: 試合詳細
     index:
-      title: 投稿一覧
+      title: 試合一覧
     confirm:
-      title: 以下の内容で投稿します
+      title: 以下の内容で登録します
     create:
-      success: 写真を投稿しました
+      success: 試合を登録しました
     update:
       success: 編集しました
     destroy:
-      success: 写真を削除しました
+      success: 試合を削除しました
   sessions:
     create:
       success: ログインしました

@@ -40,24 +40,23 @@ en:
       success: Edited a User Info
     destroy:
       success: Deleted a User
-  pictures:
+  games:
     new:
-      title: Create Picture
+      title: New Game
     edit:
-      title: Edit Picture
+      title: Edit Game
     show:
-      title: Picture Detail
-      favorite_Pictures: Favorite Pictures
+      title: Game Detail
     index:
-      title: Picture List
+      title: Game List
     confirm:
       title: Post with the following content
     create:
-      success: Created a Picture
+      success: Created a Game
     update:
-      success: Edited a Picture
+      success: Edited a Game
     destroy:
-      success: Deleted a Picture
+      success: Deleted a Game
   sessions:
     create:
       success: Session Log in
