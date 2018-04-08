@@ -23,11 +23,16 @@ td, th {
     padding: 0;
 }
 
+#tt, #tt1, #tt2, #tt3, #tt4, #tt5, #tt6, #tt7,#tb, #tb1, #tb2, #tb3, #tb4, #tb5, #tb6, #tb7 {
+  padding: 0;
+  vertical-align: middle;
+}
+
 input, textarea, select, .uneditable-input {
     border: 1px solid #bbb;
     width: 100%;
     height: 100%;
-    padding: 5px;
+    padding: 8px;
 }
 
 .form-inning {
