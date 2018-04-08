@@ -21,7 +21,7 @@ class MembersController < ApplicationController
   end
 
   def index
-    @members = Member.all
+    @members = Member.all.order(:id)
   end
 
   def update
