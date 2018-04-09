@@ -81,5 +81,5 @@
               = !@game.bat_first ? @game.runs : @game.runs_allowed
     .game_overview.col-md-12
       = form.label :overview
-      = form.text_area :overview, class: "form-control", placeholder: "戦評"
+      = form.text_area :overview, class: "form-control", placeholder: "戦評", rows: 5
       = form.submit t: :submit, class: "btn btn-default"

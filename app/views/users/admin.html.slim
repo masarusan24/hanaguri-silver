@@ -1,11 +1,12 @@
 h1.title
   =t '.title'
+.container
   .prof-title
-    .col-md-4.col-md-offset-4.col-sm-4.col-sm-offset-4
+    .col-md-6.col-md-offset-3.col-sm-6.col-sm-offset-3
       = link_to t(:member_manage), members_path, class: "btn btn-default btn-menu"
-    .col-md-4.col-md-offset-4.col-sm-4.col-sm-offset-4
+    .col-md-6.col-md-offset-3.col-sm-6.col-sm-offset-3
       = link_to t(:new_member), new_member_path, class: "btn btn-default btn-menu"
-    .col-md-4.col-md-offset-4.col-sm-4.col-sm-offset-4
+    .col-md-6.col-md-offset-3.col-sm-6.col-sm-offset-3
       = link_to t(:game_manage), games_path, class: "btn btn-default btn-menu"
-    .col-md-4.col-md-offset-4.col-sm-4.col-sm-offset-4
+    .col-md-6.col-md-offset-3.col-sm-6.col-sm-offset-3
       = link_to t(:new_game), new_game_path, class: "btn btn-default btn-menu"
