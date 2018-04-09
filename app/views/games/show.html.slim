@@ -1,10 +1,12 @@
+h1.title
+  = t '.title'
 .container
   .game_date.col-md-4
-    = t '.date'
+    = t(:date)
     = ' : '
     = @game.date
   .game_ground.col-md-4
-    = t '.ground'
+    = t(:ground)
     = ' : '
     = @game.ground
   .score.col-md-12
@@ -12,7 +14,7 @@
       thead
         tr
           th.col-xs-2[style="padding-top:0;padding-bottom:0;"]
-            = t '.team'
+            = t(:team)
           th[style="padding-top:0;padding-bottom:0;"]
             | 1
           th[style="padding-top:0;padding-bottom:0;"]
@@ -28,7 +30,7 @@
           th[style="padding-top:0;padding-bottom:0;"]
             | 7
           th[style="padding-top:0;padding-bottom:0;"]
-            = t '.total'
+            = t(:total)
       tbody
         tr
           td.team_top
@@ -69,6 +71,6 @@
           td.b_total
             = !@game.bat_first ? @game.runs : @game.runs_allowed
     p
-      = t '.overview'
+      = t(:overview)
     p
       = simple_format(h @game.overview)
