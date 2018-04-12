@@ -50,6 +50,7 @@ class MembersController < ApplicationController
       :uniform_number,
       :position,
       :image,
+      :introduction,
       :team_id
     )
   end

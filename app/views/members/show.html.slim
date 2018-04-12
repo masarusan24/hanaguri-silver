@@ -10,8 +10,8 @@
         = @member.full_name
         small
           = @member.position
-      p
-        | What does this team member to? Keep it short! This is also a great spot for social links!
+      h5
+        = simple_format(h @member.introduction)
       - if logged_in?
         = link_to t(:edit), edit_member_path(@member.name), class: "btn btn-link"
         = link_to t(:delete), member_path(@member.name), method: :delete, data: { confirm: t(:confirm_detele) }, class: "btn btn-link"
