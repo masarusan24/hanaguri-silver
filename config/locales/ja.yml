@@ -156,6 +156,7 @@ ja:
         uniform_number: 背番号
         position: ポジション
         image: 画像
+        introduction: 紹介文
       session:
         name: ユーザID
         email: メールアドレス
