@@ -13,4 +13,14 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include GamesHelper
   include Banken
+  rescue_from Banken::NotAuthorizedError, with: :user_not_authorized
+
+  private
+
+  def user_not_authorized(exception)
+    loyalty_name = exception.loyalty.class.to_s.underscore
+
+    flash[:danger] = t "#{loyalty_name}.#{exception.query}", scope: "banken", default: :default
+    redirect_to(request.referrer || admin_menu_path)
+  end
 end

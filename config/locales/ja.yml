@@ -231,6 +231,7 @@ ja:
   new_member: 新規選手登録
   game_manage: 試合管理
   new_game: 新規試合登録
+  user_manage: 管理者ユーザ管理
   team_record: チーム成績
   contact: お問合わせ
   contact_form: お問い合わせフォーム
@@ -238,6 +239,7 @@ ja:
   content: 本文
   author: 投稿者
   created_at: 作成日時
+  new: 新規登録
   detail: 詳細画面へ
   edit: 編集画面へ
   delete: 削除する
@@ -272,6 +274,19 @@ ja:
   users:
     admin:
       title: 管理者メニュー
+    create:
+      success: ユーザを作成しました
+    new:
+      title: 新規ユーザ登録
+    index:
+      title: ユーザ一覧
+      admin: 管理者
+      name: ユーザID
+      email: メールアドレス
+    update:
+      success: ユーザ情報を更新しました
+    destroy:
+      success: ユーザを削除しました      
   members:
     new:
       title: 新規選手登録
@@ -318,6 +333,6 @@ ja:
       success: "%{user}さんの写真をお気に入りから削除しました"
   banken:
     default: この操作は許可されていません
-    posts_loyalty:
-      update?: この投稿は編集できません
-      create?: 投稿できません
+    users_loyalty:
+      update?: ユーザ編集権限がありません
+      create?: ユーザ作成権限がありません

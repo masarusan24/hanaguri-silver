@@ -1,6 +1,8 @@
 class TeamsController < ApplicationController
   before_action :set_teams, only: %i[show edit update destroy]
   before_action :get_year, only: %i[show]
+  before_action :redirect_to_login, only: %i[new edit create destroy]
+  before_action :authorize_action, only: %i[new create edit update destroy]
 
   def new
     @team = Team.new
@@ -49,5 +51,15 @@ class TeamsController < ApplicationController
 
   def get_year
     @year ||= params[:year] || Date.today.year
+  end
+
+  def redirect_to_login
+    unless logged_in?
+      redirect_to new_session_path, flash: { warning: t(:please_login) }
+    end
+  end
+
+  def authorize_action
+    authorize! @team
   end
 end

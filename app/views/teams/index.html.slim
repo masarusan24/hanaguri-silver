@@ -2,10 +2,24 @@ h1.title
   = t '.title'
 .container
   .row
-    - @teams.each do |team|
-      .col-xs-12.col-md-12
-        .team-panel
-          - unless team.logo.nil?
-            = image_tag team.logo.thumb
-          = team.team_name
-          = team.team_short_name
+    table.table
+     thead
+       tr
+         th =t '.logo'
+         th =t '.team_name'
+         th =t '.home_ground'
+         th colspsn="2"
+     tbody
+     - @teams.each do |team|
+       tr
+         td = image_tag team.logo.thumb unless team.logo.nil?
+         td = team.team_name
+         td = team.home_ground
+         - if current_user.admin?
+           td = link_to t(:edit), edit_team_path(team.team_short_name), class: "btn btn-info"
+           td = link_to t(:delete), team_path(team.team_short_name), method: :delete, data: { confirm: t(:confirm_detele) }, class: "btn btn-danger"
+         - else
+           td = link_to t(:edit), '', class: "btn btn-info", disabled: "disabled"
+           td = link_to t(:delete), '', class: "btn btn-danger", disabled: "disabled"
+    - if current_user.admin?
+      = link_to t(:new), new_team_path, class: "btn btn-default"

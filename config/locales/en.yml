@@ -30,6 +30,19 @@ en:
   users:
     admin:
       title: Administrator Menu
+    new:
+      title: New User
+    index:
+      title: User List
+      admin: Administrator
+      name: Name
+      email: Email
+    create:
+      success: Created a User
+    update:
+      success: Edited a User Info
+    destroy:
+      success: Deleted a User
   members:
     new:
       title: New Member
@@ -41,11 +54,11 @@ en:
     index:
       title: Member List
     create:
-      success: Created a User
+      success: Created a Member
     update:
-      success: Edited a User Info
+      success: Edited a Member Info
     destroy:
-      success: Deleted a User
+      success: Deleted a Member
   games:
     new:
       title: New Game
@@ -77,5 +90,5 @@ en:
   banken:
     default: 'You cannot perform this action.'
     posts_loyalty:
-      update?: 'You cannot edit this post!'
-      create?: 'You cannot create posts!'
+      update?: 'You cannot edit this user!'
+      create?: 'You cannot create users!'

@@ -26,4 +26,7 @@
     .user_password
       = form.label :password_confirmation
       = form.password_field :password_confirmation, class: "form-control", placeholder: "password_confirmation"
+    .user_admin
+      = form.label :admin
+      = form.select :admin, [["管理者", :true],["一般", :false]], {}, { class: "form-control" }
     = form.submit t: :submit, class: "btn btn-default"

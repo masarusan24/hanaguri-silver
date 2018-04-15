@@ -2,6 +2,7 @@ class GamesController < ApplicationController
   before_action :set_game, only: %i[show edit update destroy]
   before_action :set_score, only: %i[show edit update destroy]
   before_action :redirect_to_login, only: %i[new edit update destroy]
+  before_action :authorize_action, only: %i[new create edit update destroy]
 
   def new
     @game = my_team.games.build
@@ -157,5 +158,9 @@ class GamesController < ApplicationController
 
   def default_url_options(options = { year: Date.today.year })
     { locale: I18n.locale }.merge options
+  end
+
+  def authorize_action
+    authorize! @game
   end
 end
