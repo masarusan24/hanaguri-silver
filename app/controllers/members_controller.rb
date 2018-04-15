@@ -1,5 +1,7 @@
 class MembersController < ApplicationController
   before_action :set_member, only: %i[show edit update destroy]
+  before_action :redirect_to_login, only: %i[new edit create destroy]
+  before_action :authorize_action, only: %i[new create edit update destroy]
 
   def new
     @member = Member.new
@@ -53,5 +55,15 @@ class MembersController < ApplicationController
       :introduction,
       :team_id
     )
+  end
+
+  def redirect_to_login
+    unless logged_in?
+      redirect_to new_session_path, flash: { warning: t(:please_login) }
+    end
+  end
+
+  def authorize_action
+    authorize! @member
   end
 end
