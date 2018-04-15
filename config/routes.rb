@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   resources :users, param: :name
   resources :sessions, only: %i[new create destroy]
   resources :games
-  # resources :scores, only: %i[new create edit update destroy]
   resources :batting_records
   resources :pitching_records
   # resources :game_relations, only: %i[create destroy]

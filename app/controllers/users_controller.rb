@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   def admin() end
 
   def index
-    @users = User.all
+    @users = User.index
   end
 
   def destroy

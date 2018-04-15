@@ -23,7 +23,7 @@ class MembersController < ApplicationController
   end
 
   def index
-    @members = Member.all.order(:id)
+    @members = Member.index.order(:id)
   end
 
   def update
