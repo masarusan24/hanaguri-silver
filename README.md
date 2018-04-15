@@ -22,7 +22,7 @@ https://hanaguri-silver.herokuapp.com/
 - ロール管理機能
 - お問い合わせ機能
 
-## Cooming Soon
+## Comming Soon
 - スタメン登録
 - 打撃成績のCRUD機能
 - 投手成績のCRUD機能
