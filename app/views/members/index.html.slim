@@ -16,6 +16,6 @@ h1.title
             = member.uniform_number
         p
           = member.position
-        - if loyalty(member, :members).update?
+        - if logged_in? && loyalty(member, :members).update?
           = link_to t(:edit), edit_member_path(member.name), class: "btn btn-link"
           = link_to t(:delete), member_path(member.name), method: :delete, data: { confirm: t(:confirm_detele) }, class: "btn btn-link"
