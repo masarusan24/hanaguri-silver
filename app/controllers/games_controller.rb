@@ -42,7 +42,7 @@ class GamesController < ApplicationController
 
   def destroy
     @game.destroy
-    redirect_to games_path, flash: { danger: t('.success') }
+    redirect_to games_path, flash: { success: t('.success') }
   end
 
   private

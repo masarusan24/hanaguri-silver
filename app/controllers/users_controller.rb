@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to users_path, flash: { info: t('.success') }
+      redirect_to users_path, flash: { success: t('.success') }
     else
       render :edit
     end
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    redirect_to users_path, flash: { danger: t('.success') }
+    redirect_to users_path, flash: { success: t('.success') }
   end
 
   private

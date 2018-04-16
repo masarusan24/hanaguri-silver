@@ -11,7 +11,7 @@ class TeamsController < ApplicationController
   def create
     @team = Team.new(team_params)
     if @team.save
-      redirect_to teams_path, flash: { success: 'チームを作成しました' }
+      redirect_to teams_path, flash: { success: t('.success') }
     else
       render :new
     end
@@ -26,7 +26,7 @@ class TeamsController < ApplicationController
 
   def update
     if @team.update(team_params)
-      redirect_to teams_path, flash: { info: 'チーム情報を更新しました' }
+      redirect_to teams_path, flash: { success: t('.success') }
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class TeamsController < ApplicationController
 
   def destroy
     @team.destroy
-    redirect_to teams_path, flash: { danger: t('.success') }
+    redirect_to teams_path, flash: { success: t('.success') }
   end
 
   private
