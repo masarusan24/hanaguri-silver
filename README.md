@@ -35,6 +35,9 @@ https://hanaguri-silver.herokuapp.com/
 - 試合のスコアCRUD処理
   - 一般管理者権限以上
 
+## ER Diagram
+![erd](https://user-images.githubusercontent.com/17737460/38798256-0e84636a-419c-11e8-9cfd-2304b0c18cd5.png)
+
 ## Usage
 このアプリケーションを動かす場合は、まずはリポジトリを手元にクローンしてください。
 
