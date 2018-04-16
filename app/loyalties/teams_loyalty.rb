@@ -1,5 +1,5 @@
 class TeamsLoyalty < ApplicationLoyalty
-  def new?
+  def create?
     user.admin?
   end
 
