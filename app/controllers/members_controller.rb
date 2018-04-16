@@ -10,7 +10,7 @@ class MembersController < ApplicationController
   def create
     @member = Member.new(member_params)
     if @member.save
-      redirect_to members_path, flash: { info: t('.success') }
+      redirect_to members_path, flash: { success: t('.success') }
     else
       render :new
     end
@@ -28,7 +28,7 @@ class MembersController < ApplicationController
 
   def update
     if @member.update(member_params)
-      redirect_to member_path(@member.name), flash: { info: t('.success') }
+      redirect_to member_path(@member.name), flash: { success: t('.success') }
     else
       render :edit
     end
@@ -36,7 +36,7 @@ class MembersController < ApplicationController
 
   def destroy
     @member.destroy
-    redirect_to members_path, flash: { danger: t('.success') }
+    redirect_to members_path, flash: { success: t('.success') }
   end
 
   private
