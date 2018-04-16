@@ -16,18 +16,49 @@ section.page-section.clearfix
         span.section-heading-upper
           | 埼玉県草加市で活動しているソフトボールチームです
       p.mb-3
-        | Every cup of our quality artisan coffee starts with locally sourced, hand picked ingredients. Once you try it, our coffee will be a blissful addition to your everyday morning routine - we guarantee it!
+        | メンバー募集中！一緒に汗を流しませんか？
       .intro-button.mx-auto
         = link_to 'Contact Us!', new_contact_path, class: "a btn btn-primary btn-xl"
-section.page-section.cta
+section.about-our-team
+  .container
+    section.preamble
+      h1
+        | Service
+section.features-icons.bg-light.text-center
   .container
     .row
-      .col-xl-9.mx-auto
-        .cta-inner.text-center.rounded
-          h2.section-heading.mb-4
-            span.section-heading-upper
-              | Our Promise
-            span.section-heading-lower
-              | To You
-          p.mb-0
-            | When you walk into our shop to start your day, we are dedicated to providing you with friendly service, a welcoming atmosphere, and above all else, excellent products made with the highest quality ingredients. If you are not satisfied, please let us know and we will do whatever we can to make things right!
+      .col-lg-4
+        .features-icons-item.mx-auto.mb-5.mb-lg-0.mb-lg-3
+          .features-icons-icon.d-flex
+            = fa_icon 'flag', class: "m-auto text-primary"
+          h3
+            | スコア作成
+          p.lead.mb-0
+            | 試合のスコアをリアルタイムで付けることが出来ます。
+      .col-lg-4
+        .features-icons-item.mx-auto.mb-5.mb-lg-0.mb-lg-3
+          .features-icons-icon.d-flex
+            = fa_icon 'tv', class: "m-auto text-primary"
+          h3
+            | チーム成績を簡単整理
+          p.lead.mb-0
+            | 試合のスコアを付けることで、チーム成績も簡単集計。
+      .col-lg-4
+        .features-icons-item.mx-auto.mb-0.mb-lg-3
+          .features-icons-icon.d-flex
+            = fa_icon 'angellist', class: "m-auto text-primary"
+          h3
+            | スマホで簡単操作
+          p.lead.mb-0
+            | スマホの画面でも簡単に入力可能なインターフェース。
+.col-lg-6.h-100.text-center.text-lg-right.my-auto
+  ul.list-inline.mb-0
+    li.list-inline-item.mr-3
+      a[href="https://www.facebook.com/masato.ito.9803"]
+        = fa_icon 'facebook', class: "fa-2x fa-fw"
+    li.list-inline-item.mr-3
+      a[href="https://twitter.com/masarusan24"]
+        = fa_icon 'twitter', class: "fa-2x fa-fw"
+    li.list-inline-item
+      a[href="https://github.com/masarusan24/hanaguri-silver"]
+        = fa_icon 'github', class: "fa-2x fa-fw"
