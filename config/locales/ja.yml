@@ -326,6 +326,9 @@ ja:
       failed: ログインに失敗しました
     destroy:
       success: ログアウトしました
+  contacts:
+    create:
+      success: お問い合わせを送信しました
   favorites:
     create:
       success: "%{user}さんの写真をお気に入りに登録しました"

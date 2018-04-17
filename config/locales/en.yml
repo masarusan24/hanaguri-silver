@@ -82,6 +82,9 @@ en:
       failed: Failed Log in
     destroy:
       success: Session Log out
+  contacts:
+    create:
+      success: Your inquiry has been sent.
   favorites:
     create:
       success: added %{user}'s photo to your favorites.
