@@ -149,7 +149,7 @@ class GamesController < ApplicationController
   end
 
   def set_other_game_params
-    @game.year = params[:game][:date].to_date.year unless @game.year.nil?
+    @game.year = params[:game][:date].to_date.year unless params[:game][:date].to_date.nil?
     @game.runs = get_total_score(@game.bat_first)
     @game.runs_allowed = get_total_score(!@game.bat_first)
     @game.is_win = win?
