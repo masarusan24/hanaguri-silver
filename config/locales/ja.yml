@@ -265,6 +265,9 @@ ja:
       title: "%{team}のページ"
     index:
       title: チーム一覧
+      logo: ロゴ
+      team_name: チーム名
+      home_ground: 本拠地
     create:
       success: チームを作成しました
     update:

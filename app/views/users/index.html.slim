@@ -1,14 +1,14 @@
 h1.title
-  =t '.title'
+  = t '.title'
 .container
   .row
     .col-lg-12
       table.table
         thead
           tr
-            th =t '.admin'
-            th =t '.name'
-            th =t '.email'
+            th = t '.admin'
+            th = t '.name'
+            th = t '.email'
             th colspsn="2"
         tbody
         - @users.each do |user|

@@ -1,7 +1,6 @@
 ja:
   activerecord:
     models:
-      blog: "Blog"
       user: "User"
     attributes:
       blog:
