@@ -19,7 +19,7 @@
 
  body {
    margin-top: 50px;
-   margin-bottom: 80px;
+   margin-bottom: 100px;
  }
 
  h1.title {
@@ -100,4 +100,8 @@
 
 .btn-panel {
   width: 33%;
+}
+
+.fa-gray {
+  color: gray;
 }
