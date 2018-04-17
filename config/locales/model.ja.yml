@@ -1,21 +1,44 @@
 ja:
   activerecord:
     models:
-      picture: "ブログ"
       user: "ユーザー"
+      team: "チーム"
+      member: "選手"
+      game: "試合"
+      score: "スコア"
       contact: "お問い合わせ"
     attributes:
-      picture:
-        title: "タイトル"
-        content: "内容"
       user:
-        title: "タイトル"
         name: "名前"
         email: "メールアドレス"
         current_password: "現在のパスワード"
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "ログインを記憶"
+      team:
+        team_name: "チーム名"
+        team_short_name: "チーム略称"
+        home_ground: "本拠地"
+        overview: "チーム概要"
+        logo: "ロゴ"
+      member:
+        name: "選手ID"
+        full_name: "選手名"
+        uniform_number: "背番号"
+        position: "ポジション"
+        image: "画像"
+        introduction: "紹介文"
+      game:
+        year: "年度"
+        date: "日付"
+        team_top: "先行チーム"
+        team_bottom: "後攻チーム"
+        ground: "グラウンド"
+        bat_first: "先攻・後攻"
+        runs: "得点"
+        runs_allowed: "失点"
+        is_win: "勝敗"
+        is_draw: "引き分け"
       contact:
         name: "お名前"
         email: "メールアドレス"

@@ -14,6 +14,9 @@ class Game < ApplicationRecord
   # has_many :pitching_records, dependent: :destroy
   # has_many :pitching_members, through: :pitching_records, source: :member
 
+  # validates presence date
+  validates :date, presence: true
+
   # validates presence team name
   validates :team_top, presence: true
   validates :team_bottom, presence: true
