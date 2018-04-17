@@ -2,24 +2,25 @@ h1.title
   =t '.title'
 .container
   .row
-    table.table
-      thead
-        tr
-          th =t '.admin'
-          th =t '.name'
-          th =t '.email'
-          th colspsn="2"
-      tbody
-      - @users.each do |user|
-        tr
-          td = fa_icon 'flag' if user.admin?
-          td = user.name
-          td = user.email
-          - if current_user.admin?
-            td = link_to t(:edit), edit_user_path(user.name), class: "btn btn-info"
-            td = link_to t(:delete), user_path(user.name), method: :delete, data: { confirm: t(:confirm_detele) }, class: "btn btn-danger"
-          - else
-            td = link_to t(:edit), '', class: "btn btn-info", disabled: "disabled"
-            td = link_to t(:delete), '', class: "btn btn-danger", disabled: "disabled"
-    - if current_user.admin?
-      = link_to t(:new), new_user_path, class: "btn btn-default"
+    .col-lg-12
+      table.table
+        thead
+          tr
+            th =t '.admin'
+            th =t '.name'
+            th =t '.email'
+            th colspsn="2"
+        tbody
+        - @users.each do |user|
+          tr
+            td = fa_icon 'flag' if user.admin?
+            td = user.name
+            td = user.email
+            - if current_user.admin?
+              td = link_to t(:edit), edit_user_path(user.name), class: "btn btn-info"
+              td = link_to t(:delete), user_path(user.name), method: :delete, data: { confirm: t(:confirm_detele) }, class: "btn btn-danger"
+            - else
+              td = link_to t(:edit), '', class: "btn btn-info", disabled: "disabled"
+              td = link_to t(:delete), '', class: "btn btn-danger", disabled: "disabled"
+      - if current_user.admin?
+        = link_to t(:new), new_user_path, class: "btn btn-default"

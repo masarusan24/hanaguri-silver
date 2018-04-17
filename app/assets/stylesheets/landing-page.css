@@ -58,6 +58,10 @@ header.masthead h1 {
   font-size: 4.5rem;
 }
 
+.m-auto {
+    margin: auto!important;
+}
+
 .features-icons .features-icons-item:hover .features-icons-icon i {
   font-size: 5rem;
 }
