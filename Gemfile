@@ -22,11 +22,13 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
 gem 'dotenv-rails'
-# for user authorization setting
+# for use authorization setting
 gem 'banken'
-# for user slim template engine
+# for use slim template engine
 gem 'slim'
 gem 'jquery-ui-rails'
+# for use markdown
+gem 'redcarpet'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
