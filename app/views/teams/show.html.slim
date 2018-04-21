@@ -6,7 +6,7 @@ h1.title
       .team-panel
         = image_tag @team.logo
         p
-        = simple_format(h @team.overview)
+        = markdown(@team.overview)
         p
         = t(:team_record)
         .year-panel

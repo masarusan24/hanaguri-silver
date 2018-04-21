@@ -1,5 +1,5 @@
 module ApplicationHelper
-  require 'redcarpet'
+  # include Redcarpet
 
   def markdown(text)
     unless @markdown

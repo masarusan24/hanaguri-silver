@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include GamesHelper
   include Banken
+  include Redcarpet
   rescue_from Banken::NotAuthorizedError, with: :user_not_authorized
 
   private
