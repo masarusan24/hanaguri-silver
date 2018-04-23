@@ -13,28 +13,28 @@ h1.title
           = link_to '<< ', team_path(:silver, year: @year.to_i - 1)
           = t :fy, year: @year
           = link_to ' >>', team_path(:silver, year: @year.to_i + 1)
-        table.score.table
+        table.score.table.table-bordered
           thead
             tr
-              th[style="padding-top:0;padding-bottom:0;"]
+              th
                 | 試合数
-              th[style="padding-top:0;padding-bottom:0;"]
+              th
                 | 勝
-              th[style="padding-top:0;padding-bottom:0;"]
+              th
                 | 敗
-              th[style="padding-top:0;padding-bottom:0;"]
+              th
                 | 分
-              th[style="padding-top:0;padding-bottom:0;"]
+              th
                 | 勝率
-              th[style="padding-top:0;padding-bottom:0;"]
+              th
                 | 総得点
-              th[style="padding-top:0;padding-bottom:0;"]
+              th
                 | 総失点
-              th[style="padding-top:0;padding-bottom:0;"]
+              th
                 | 平均得点
-              th[style="padding-top:0;padding-bottom:0;"]
+              th
                 | 平均失点
-              th[style="padding-top:0;padding-bottom:0;"]
+              th
                 | 得失点差
           tbody
             tr
@@ -53,8 +53,8 @@ h1.title
               td
                 = total_runs_allowed(@year)
               td
-                = total_runs(@year) / @team.games.where(year: @year).count.to_f
+                = (total_runs(@year) / @team.games.where(year: @year).count.to_f).round(3)
               td
-                = total_runs_allowed(@year) / @team.games.where(year: @year).count.to_f
+                = (total_runs_allowed(@year) / @team.games.where(year: @year).count.to_f).round(3)
               td
                 = total_runs(@year) - total_runs_allowed(@year)

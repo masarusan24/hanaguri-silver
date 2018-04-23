@@ -3,20 +3,13 @@
     margin: 10px 0 0 0;
 }
 
-.score tbody, .score thead {
+.score.table,
+.score.table input {
     background-color: #006400;
     color: #fff;
     font-family: verdana, arial, helvetica, sans-serif;
     font-size: 13px;
-    line-height: 18px;
-}
-
-.score tbody tr td input, .score thead tr td input {
-    background-color: #006400;
-    color: #fff;
-    font-family: verdana, arial, helvetica, sans-serif;
-    font-size: 13px;
-    line-height: 18px;
+    line-height: 20px;
 }
 
 td, th {
