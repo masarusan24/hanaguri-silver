@@ -2,7 +2,7 @@
   "name": "hanaguri-silver",
   "private": true,
   "dependencies": {
-    "bootstrap": "^4.1.0",
+    "bootstrap": "3",
     "jquery": "^3.3.1"
   }
 }
