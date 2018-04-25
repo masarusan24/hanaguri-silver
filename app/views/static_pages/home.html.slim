@@ -30,7 +30,7 @@ section.features-icons.bg-light.text-center
       .col-lg-4.col-md-4
         .features-icons-item.mx-auto
           .features-icons-icon.d-flex
-            = fa_icon 'edit', class: "m-auto text-primary"
+            = link_to (fa_icon 'edit'), new_game_path, class: "m-auto text-primary"
           h3
             | スコア作成
           p.lead.mb-0
@@ -38,7 +38,7 @@ section.features-icons.bg-light.text-center
       .col-lg-4.col-md-4
         .features-icons-item.mx-auto
           .features-icons-icon.d-flex
-            = fa_icon 'database', class: "m-auto text-primary"
+            = link_to (fa_icon 'database'), team_path(:silver), class: "m-auto text-primary"
           h3
             | チーム成績を簡単整理
           p.lead.mb-0
@@ -46,7 +46,7 @@ section.features-icons.bg-light.text-center
       .col-lg-4.col-md-4
         .features-icons-item.mx-auto
           .features-icons-icon.d-flex
-            = fa_icon 'tablet', class: "m-auto text-primary"
+            = link_to (fa_icon 'tablet'), games_path, class: "m-auto text-primary"
           h3
             | スマホで簡単操作
           p.lead.mb-0
