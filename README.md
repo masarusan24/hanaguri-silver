@@ -12,6 +12,7 @@ https://hanaguri-silver.herokuapp.com/
 - Ruby 2.4.1
 - Rails 5.1.5
 - PostgreSQL 10.1
+- Bootstrap 3
 
 ## Function
 - チームのCRUD処理
@@ -36,7 +37,7 @@ https://hanaguri-silver.herokuapp.com/
   - 一般管理者権限以上
 
 ## ER Diagram
-![erd](https://user-images.githubusercontent.com/17737460/38798256-0e84636a-419c-11e8-9cfd-2304b0c18cd5.png)
+![er](https://user-images.githubusercontent.com/17737460/39313493-17b472ea-49ad-11e8-8a02-1c53dede3dfc.png)
 
 ## Usage
 このアプリケーションを動かす場合は、まずはリポジトリを手元にクローンしてください。
