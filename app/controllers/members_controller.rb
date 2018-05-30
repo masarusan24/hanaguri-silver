@@ -1,7 +1,7 @@
 class MembersController < ApplicationController
   before_action :set_member, only: %i[show edit update destroy]
   before_action :redirect_to_login, only: %i[new edit create destroy]
-  before_action :authorize_action, only: %i[new create edit update destroy]
+  before_action :authorize_action, except: %i[index show]
 
   def new
     @member = Member.new
