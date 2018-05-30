@@ -1,13 +1,13 @@
 class GamesLoyalty < ApplicationLoyalty
   def create?
-    !user.nil?
+    user.present?
   end
 
   def update?
-    !user.nil?
+    user.present?
   end
 
   def destroy?
-    !user.nil?
+    user.present?
   end
 end
