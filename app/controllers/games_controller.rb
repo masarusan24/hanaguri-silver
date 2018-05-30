@@ -25,8 +25,7 @@ class GamesController < ApplicationController
     @games = Game.index.where(year: @year).order(:date)
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     set_other_game_params
@@ -37,8 +36,7 @@ class GamesController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
   def destroy
     @game.destroy

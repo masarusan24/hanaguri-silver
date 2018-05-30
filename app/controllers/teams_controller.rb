@@ -21,8 +21,7 @@ class TeamsController < ApplicationController
     @teams = Team.index
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @team.update(team_params)
@@ -32,8 +31,7 @@ class TeamsController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
   def destroy
     @team.destroy
@@ -41,6 +39,7 @@ class TeamsController < ApplicationController
   end
 
   private
+
   def team_params
     params.require(:team).permit(:team_name, :team_short_name, :home_ground, :overview, :logo)
   end
