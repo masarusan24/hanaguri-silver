@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Team, type: :model do
-  # チーム名と略称があれば有効であること
+  # チーム名と略称があれば有効
   it 'is valid with team_name and team_short_name' do
     team = Team.new(
       team_name:       'Hanaguri Silver',
