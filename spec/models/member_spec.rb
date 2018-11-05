@@ -2,10 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Member, type: :model do
   before do
-    @team = Team.create(
-      team_name:       'Hanaguri Silver',
-      team_short_name: 'Silver'
-    )
+    @team = FactoryBot.create(:team)
 
     @member = @team.members.create(
       name:      'masarusan24',
