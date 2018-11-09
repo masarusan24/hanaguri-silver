@@ -9,5 +9,12 @@ module HanaguriSilver
     config.load_defaults 5.1
     config.i18n.default_locale = :ja
     config.generators.template_engine = :slim
+    config.generators do |g|
+      g.test_framework :rspec,
+        view_specs:    false,
+        helper_specs:  false,
+        routing_specs: false,
+        request_specs: false
+    end
   end
 end
