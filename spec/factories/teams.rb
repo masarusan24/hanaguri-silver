@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :team do
     team_name 'Hanaguri Silver'
-    team_short_name 'Silver'
+    team_short_name 'silver'
   end
 
   trait :with_members do
