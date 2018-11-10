@@ -54,8 +54,6 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
-end
 
-def sign_in(user)
-  cookies[:user_id] = user.id
+  config.include SessionsHelper, type: :controller
 end

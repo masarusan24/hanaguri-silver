@@ -164,23 +164,22 @@ RSpec.describe MembersController, type: :controller do
         )
         sign_in @user
         patch :update, params: { name: @member.name, member: member_params }
-        expect(@member.reload.name).to eq 'Old Member full_name'
+        expect(@member.reload.full_name).to eq 'Old Member full_name'
       end
     end
+
     # ゲストとして
     context 'as a guest' do
       before do
-        @member = FactoryBot.create(:member, full_name: 'Old Member full_name')
+        @member = FactoryBot.create(:member)
       end
 
-      # メンバー情報を更新出来ないこと
-      it 'does not update member' do
-        member_params = FactoryBot.attributes_for(
-          :member,
-          full_name: 'New Member full_name'
-        )
-        patch :update, params: { name: @member.name, member: member_params }
-        expect(@member.reload.name).to eq 'Ole Member full_name'
+      # NoMethodErrorを返すこと
+      it 'returns NoMethodError' do
+        member_params = FactoryBot.attributes_for(:member)
+        expect {
+          patch :update, params: { name: @member.name, member: member_params }
+        }.to raise_error(NoMethodError)
       end
     end
   end
@@ -197,7 +196,7 @@ RSpec.describe MembersController, type: :controller do
       it 'deletes a member' do
         sign_in @user
         expect {
-          delete :destroy, params: { id: @member.id }
+          delete :destroy, params: { name: @member.name }
         }.to change(Member, :count).by(-1)
       end
     end
@@ -206,23 +205,28 @@ RSpec.describe MembersController, type: :controller do
     context 'as an authenticated user' do
       before do
         @user = FactoryBot.create(:user)
+        @member = FactoryBot.create(:member)
       end
 
       # メンバー情報を削除出来ないこと
       it 'does not delete a member' do
-        sig_in @user
+        sign_in @user
         expect {
-          delete :destroy, params: { id: @member.id }
+          delete :destroy, params: { name: @member.name }
         }.to_not change(Member, :count)
       end
     end
 
     # ゲストとして
     context 'as a guest' do
+      before do
+        @member = FactoryBot.create(:member)
+      end
+
       # メンバー情報を削除出来ないこと
       it 'does not delete a member' do
         expect {
-          delete :destroy, params: { id: @member.id }
+          delete :destroy, params: { name: @member.name }
         }.to_not change(Member, :count)
       end
     end
