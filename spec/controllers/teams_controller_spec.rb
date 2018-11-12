@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe MembersController, type: :controller do
+RSpec.describe TeamsController, type: :controller do
   describe '#index' do
     # Adminユーザとして
     context 'as an administrator' do
@@ -32,8 +32,8 @@ RSpec.describe MembersController, type: :controller do
 
     # ゲストとして
     context 'as a guest' do
-      # (ログインなしでも)正常にレスポンスを返すこと
-      it 'responds successfully without sign-in' do
+      # 正常にレスポンスを返すこと
+      it 'responds successfully' do
         get :index
         expect(response).to be_success
       end
@@ -44,14 +44,14 @@ RSpec.describe MembersController, type: :controller do
     # Adminユーザとして
     context 'as an administrator' do
       before do
-        @user   = FactoryBot.create(:user, :as_admin)
-        @member = FactoryBot.create(:member)
+        @user = FactoryBot.create(:user, :as_admin)
+        @team = FactoryBot.create(:team)
       end
 
       # 正常にレスポンスを返すこと
       it 'responds successfully' do
         sign_in @user
-        get :show, params: { name: @member.name }
+        get :show, params: { team_short_name: @team.team_short_name }
         expect(response).to be_success
       end
     end
@@ -59,14 +59,14 @@ RSpec.describe MembersController, type: :controller do
     # 一般管理者として
     context 'as an authenticated user' do
       before do
-        @user   = FactoryBot.create(:user)
-        @member = FactoryBot.create(:member)
+        @user = FactoryBot.create(:user)
+        @team = FactoryBot.create(:team)
       end
 
       # 正常にレスポンスを返すこと
       it 'responds successfully' do
         sign_in @user
-        get :show, params: { name: @member.name }
+        get :show, params: { team_short_name: @team.team_short_name }
         expect(response).to be_success
       end
     end
@@ -74,12 +74,12 @@ RSpec.describe MembersController, type: :controller do
     # ゲストとして
     context 'as a guest' do
       before do
-        @member = FactoryBot.create(:member)
+        @team = FactoryBot.create(:team)
       end
 
-      # (ログインなしでも)正常にレスポンスを返すこと
-      it 'responds successfully without sign-in' do
-        get :show, params: { name: @member.name }
+      # 正常にレスポンスを返すこと
+      it 'responds successfully' do
+        get :show, params: { team_short_name: @team.team_short_name }
         expect(response).to be_success
       end
     end
@@ -128,15 +128,15 @@ RSpec.describe MembersController, type: :controller do
     # Adminユーザとして
     context 'as an administorator' do
       before do
-        @user   = FactoryBot.create(:user, :as_admin)
-        @member = FactoryBot.create(:member)
+        @user = FactoryBot.create(:user, :as_admin)
+        @team = FactoryBot.create(:team)
       end
 
       # 正常にレスポンスを返すこと
       it 'responds successfully' do
-        member_params = FactoryBot.attributes_for(:member)
+        team_params = FactoryBot.attributes_for(:team)
         sign_in @user
-        get :edit, params: { name: @member.name, member: member_params }
+        get :edit, params: { team_short_name: @team.team_short_name, team: team_params }
         expect(response).to be_success
       end
     end
@@ -144,15 +144,15 @@ RSpec.describe MembersController, type: :controller do
     # 一般管理者として
     context 'as an authenticated user' do
       before do
-        @user   = FactoryBot.create(:user)
-        @member = FactoryBot.create(:member)
+        @user = FactoryBot.create(:user)
+        @team = FactoryBot.create(:team)
       end
 
       # 302レスポンスを返すこと
       it 'returns 302 response' do
-        member_params = FactoryBot.attributes_for(:member)
+        team_params = FactoryBot.attributes_for(:team)
         sign_in @user
-        get :edit, params: { name: @member.name, member: member_params }
+        get :edit, params: { team_short_name: @team.team_short_name, team: team_params }
         expect(response).to have_http_status '302'
       end
     end
@@ -160,13 +160,13 @@ RSpec.describe MembersController, type: :controller do
     # ゲストとして
     context 'as a guest' do
       before do
-        @member = FactoryBot.create(:member)
+        @team = FactoryBot.create(:team)
       end
 
       # 302レスポンスを返すこと
       it 'returns 302 response' do
-        member_params = FactoryBot.attributes_for(:member)
-        get :edit, params: { name: @member.name, member: member_params }
+        team_params = FactoryBot.attributes_for(:team)
+        get :edit, params: { team_short_name: @team.team_short_name, team: team_params }
         expect(response).to have_http_status '302'
       end
     end
@@ -182,25 +182,25 @@ RSpec.describe MembersController, type: :controller do
 
       # 有効な属性値の場合
       context 'with valid attributes' do
-        # メンバーが作成出来ること
-        it 'adds a member' do
-          member_params = FactoryBot.attributes_for(:member)
+        # チームが作成出来ること
+        it 'adds a team' do
+          team_params = FactoryBot.attributes_for(:team)
           sign_in @user
           expect {
-            post :create, params: { member: member_params }
-          }.to change(Member, :count).by(1)
+            post :create, params: { team: team_params }
+          }.to change(Team, :count).by(1)
         end
       end
 
       # 無効な属性値の場合
       context 'with invalid attributes' do
-        # メンバーが作成出来ないこと
-        it 'does not add a member' do
-          member_params = FactoryBot.attributes_for(:member, :invalid)
+        # チームが作成出来ないこと
+        it 'does not add a team' do
+          team_params = FactoryBot.attributes_for(:team, :invalid_team)
           sign_in @user
           expect {
-            post :create, params: { member: member_params }
-          }.to_not change(Member, :count)
+            post :create, params: { team: team_params }
+          }.to_not change(Team, :count)
         end
       end
     end
@@ -213,9 +213,9 @@ RSpec.describe MembersController, type: :controller do
 
       # 302レスポンスを返すこと
       it 'returns 302 response' do
-        member_params = FactoryBot.attributes_for(:member)
+        team_params = FactoryBot.attributes_for(:team)
         sign_in @user
-        post :create, params: { member: member_params }
+        post :create, params: { team: team_params }
         expect(response).to have_http_status '302'
       end
     end
@@ -224,8 +224,8 @@ RSpec.describe MembersController, type: :controller do
     context 'as a guest' do
       # 302レスポンスを返すこと
       it 'returns 302 response' do
-        member_params = FactoryBot.attributes_for(:member)
-        post :create, params: { member: member_params }
+        team_params = FactoryBot.attributes_for(:team)
+        post :create, params: { team: team_params }
         expect(response).to have_http_status '302'
       end
     end
@@ -235,32 +235,32 @@ RSpec.describe MembersController, type: :controller do
     # Adminユーザとして
     context 'as an administrator' do
       before do
-        @user   = FactoryBot.create(:user, :as_admin)
-        @member = FactoryBot.create(:member, full_name: 'Old Member full_name')
+        @user = FactoryBot.create(:user, :as_admin)
+        @team = FactoryBot.create(:team, team_name: 'Old Team Name')
       end
 
       # 有効な属性値の場合
       context 'with valid atributes' do
-        # メンバー情報を更新出来ること
-        it 'updates a member' do
-          member_params = FactoryBot.attributes_for(
-            :member,
-            full_name: 'New Member full_name'
+        # チーム情報を更新出来ること
+        it 'updates a team' do
+          team_params = FactoryBot.attributes_for(
+            :team,
+            team_name: 'New Team Name'
           )
           sign_in @user
-          patch :update, params: { name: @member.name, member: member_params }
-          expect(@member.reload.full_name).to eq 'New Member full_name'
+          patch :update, params: { team_short_name: @team.team_short_name, team: team_params }
+          expect(@team.reload.team_name).to eq 'New Team Name'
         end
       end
 
       # 無効な属性値の場合
       context 'with invalid attributes' do
-        # メンバー情報を更新出来ないこと
-        it 'does not update a member' do
-          member_params = FactoryBot.attributes_for(:member, :invalid)
+        # チーム情報を更新出来ないこと
+        it 'does not update a team' do
+          team_params = FactoryBot.attributes_for(:team, :invalid_team)
           sign_in @user
-          patch :update, params: { name: @member.name, member: member_params }
-          expect(@member.reload.full_name).to eq 'Old Member full_name'
+          patch :update, params: { team_short_name: @team.team_short_name, team: team_params }
+          expect(@team.reload.team_name).to eq 'Old Team Name'
         end
       end
     end
@@ -268,33 +268,33 @@ RSpec.describe MembersController, type: :controller do
     # 一般管理者として
     context 'as an authenticated user' do
       before do
-        @user   = FactoryBot.create(:user)
-        @member = FactoryBot.create(:member, full_name: 'Old Member full_name')
+        @user = FactoryBot.create(:user)
+        @team = FactoryBot.create(:team, team_name: 'Old Team Name')
       end
 
-      # メンバー情報を更新出来ないこと
-      it 'does not update member' do
-        member_params = FactoryBot.attributes_for(
-          :member,
-          full_name: 'New Member full_name'
+      # チーム情報を更新出来ないこと
+      it 'does not update team' do
+        team_params = FactoryBot.attributes_for(
+          :team,
+          team_team_short_name: 'New Team Name'
         )
         sign_in @user
-        patch :update, params: { name: @member.name, member: member_params }
-        expect(@member.reload.full_name).to eq 'Old Member full_name'
+        patch :update, params: { team_short_name: @team.team_short_name, team: team_params }
+        expect(@team.reload.team_name).to eq 'Old Team Name'
       end
     end
 
     # ゲストとして
     context 'as a guest' do
       before do
-        @member = FactoryBot.create(:member)
+        @team = FactoryBot.create(:team)
       end
 
       # NoMethodErrorを返すこと
       it 'returns NoMethodError' do
-        member_params = FactoryBot.attributes_for(:member)
+        team_params = FactoryBot.attributes_for(:team)
         expect {
-          patch :update, params: { name: @member.name, member: member_params }
+          patch :update, params: { team_short_name: @team.team_short_name, team: team_params }
         }.to raise_error(NoMethodError)
       end
     end
@@ -304,16 +304,16 @@ RSpec.describe MembersController, type: :controller do
     # Adminユーザとして
     context 'as an administrator' do
       before do
-        @user   = FactoryBot.create(:user, :as_admin)
-        @member = FactoryBot.create(:member)
+        @user = FactoryBot.create(:user, :as_admin)
+        @team = FactoryBot.create(:team)
       end
 
-      # メンバー情報を削除出来ること
-      it 'deletes a member' do
+      # チーム情報を削除出来ること
+      it 'deletes a team' do
         sign_in @user
         expect {
-          delete :destroy, params: { name: @member.name }
-        }.to change(Member, :count).by(-1)
+          delete :destroy, params: { team_short_name: @team.team_short_name }
+        }.to change(Team, :count).by(-1)
       end
     end
 
@@ -321,29 +321,29 @@ RSpec.describe MembersController, type: :controller do
     context 'as an authenticated user' do
       before do
         @user = FactoryBot.create(:user)
-        @member = FactoryBot.create(:member)
+        @team = FactoryBot.create(:team)
       end
 
-      # メンバー情報を削除出来ないこと
-      it 'does not delete a member' do
+      # チーム情報を削除出来ないこと
+      it 'does not delete a team' do
         sign_in @user
         expect {
-          delete :destroy, params: { name: @member.name }
-        }.to_not change(Member, :count)
+          delete :destroy, params: { team_short_name: @team.team_short_name }
+        }.to_not change(Team, :count)
       end
     end
 
     # ゲストとして
     context 'as a guest' do
       before do
-        @member = FactoryBot.create(:member)
+        @team = FactoryBot.create(:team)
       end
 
-      # メンバー情報を削除出来ないこと
-      it 'does not delete a member' do
+      # チーム情報を削除出来ないこと
+      it 'does not delete a team' do
         expect {
-          delete :destroy, params: { name: @member.name }
-        }.to_not change(Member, :count)
+          delete :destroy, params: { team_short_name: @team.team_short_name }
+        }.to_not change(Team, :count)
       end
     end
   end
