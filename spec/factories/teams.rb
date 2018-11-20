@@ -12,7 +12,7 @@ FactoryBot.define do
     after(:create) { |team| create_list(:member, 9, team: team) }
   end
 
-  # trait :with_games do
-  #   after(:create) { |game| create_list(:game, 10, game: game) }
-  # end
+  trait :with_games do
+    after(:create) { |team| create_list(:game, 10, team: team) }
+  end
 end
