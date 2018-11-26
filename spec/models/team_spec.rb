@@ -32,8 +32,14 @@ RSpec.describe Team, type: :model do
   end
 
   # メンバーが所属していること
-  it 'has 9 members' do
+  it 'has many members' do
     team = FactoryBot.create(:team, :with_members)
     expect(team.members.length).to eq 9
+  end
+
+  # 試合を登録出来ること
+  it 'has many games' do
+    team = FactoryBot.create(:team, :with_games)
+    expect(team.games.length).to eq 10
   end
 end
