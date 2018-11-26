@@ -5,6 +5,12 @@ FactoryBot.define do
     team_top 'シルバー'
     team_bottom 'ゴーゴー'
     association :team
+    # TODO: after(:create)コールバックを加えてもdestroyアクションのテスト成功するように修正する
+    # has_one :score, dependent: :destroy としてるので成功するハズだが、以下エラーが発生する
+    # ActiveRecord::InvalidForeignKey:
+    #    PG::ForeignKeyViolation: ERROR:  update or delete on table "games" violates foreign key constraint "fk_rails_41612d9bae"on table "scores"
+    # after(:create) { |game| create(:score, game: game) }
+    after(:build) { |game| build(:score, game: game) }
   end
 
   trait :bat_first do
@@ -24,6 +30,12 @@ FactoryBot.define do
   end
 
   trait :without_team_bottom do
+    team_bottom nil
+  end
+
+  trait :invalid_game do
+    date        nil
+    team_top    nil
     team_bottom nil
   end
 
