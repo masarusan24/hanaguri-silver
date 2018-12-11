@@ -10,13 +10,13 @@
               = msg
     .game_date.col-md-4
       = form.label :date
-      = form.text_field :date, class: "form-control date-picker"
+      = form.text_field :date, class: "form-control date-picker", id: :date
     .game_ground.col-md-4
       = form.label :ground
-      = form.text_field :ground, class: "form-control"
+      = form.text_field :ground, class: "form-control", id: :ground
     .game_bat_first.col-md-4
       = form.label :bat_first
-      = form.select :bat_first, [["先攻", :true],["後攻", :false]], {}, { class: "form-control" }
+      = form.select :bat_first, [["先攻", :true],["後攻", :false]], {}, { class: "form-control", id: :bat_first }
     .score.col-md-12
       table.score.table.table-bordered
         thead
@@ -43,40 +43,40 @@
         = fields_for :score do |score|
           tr
             td#tt.team_top
-              = form.text_field :team_top, class: "form-control", placeholder: "先行チーム", tabindex: 1
+              = form.text_field :team_top, class: "form-control", placeholder: "先行チーム", tabindex: 1, id: :team_top
             td#tt1
-              = score.number_field :top_of_first, class: "form-inning", tabindex: 3, min: 0
+              = score.number_field :top_of_first, class: "form-inning", tabindex: 3, min: 0, id: :top_of_1st
             td#tt2
-              = score.number_field :top_of_second, class: "form-inning", tabindex: 5, min: 0
+              = score.number_field :top_of_second, class: "form-inning", tabindex: 5, min: 0, id: :top_of_2nd
             td#tt3
-              = score.number_field :top_of_third, class: "form-inning", tabindex: 7, min: 0
+              = score.number_field :top_of_third, class: "form-inning", tabindex: 7, min: 0, id: :top_of_3rd
             td#tt4
-              = score.number_field :top_of_fourth, class: "form-inning", tabindex: 9, min: 0
+              = score.number_field :top_of_fourth, class: "form-inning", tabindex: 9, min: 0, id: :top_of_4th
             td#tt5
-              = score.number_field :top_of_fifth, class: "form-inning", tabindex: 11, min: 0
+              = score.number_field :top_of_fifth, class: "form-inning", tabindex: 11, min: 0, id: :top_of_5th
             td#tt6
-              = score.number_field :top_of_sixth, class: "form-inning", tabindex: 13, min: 0
+              = score.number_field :top_of_sixth, class: "form-inning", tabindex: 13, min: 0, id: :top_of_6th
             td#tt7
-              = score.number_field :top_of_seventh, class: "form-inning", tabindex: 15, min: 0
+              = score.number_field :top_of_seventh, class: "form-inning", tabindex: 15, min: 0, id: :top_of_7th
             td.t_total
               = @game.bat_first ? @game.runs : @game.runs_allowed
           tr
             td#tb.team_bottom
-              = form.text_field :team_bottom, class: "form-control", placeholder: "後攻チーム", tabindex: 2
+              = form.text_field :team_bottom, class: "form-control", placeholder: "後攻チーム", tabindex: 2, id: :team_bottom
             td#tb1
-              = score.number_field :bottom_of_first, class: "form-inning", tabindex: 4, min: 0
+              = score.number_field :bottom_of_first, class: "form-inning", tabindex: 4, min: 0, id: :bottom_of_1st
             td#tb2
-              = score.number_field :bottom_of_second, class: "form-inning", tabindex: 6, min: 0
+              = score.number_field :bottom_of_second, class: "form-inning", tabindex: 6, min: 0, id: :bottom_of_2nd
             td#tb3
-              = score.number_field :bottom_of_third, class: "form-inning", tabindex: 8, min: 0
+              = score.number_field :bottom_of_third, class: "form-inning", tabindex: 8, min: 0, id: :bottom_of_3rd
             td#tb4
-              = score.number_field :bottom_of_fourth, class: "form-inning", tabindex: 10, min: 0
+              = score.number_field :bottom_of_fourth, class: "form-inning", tabindex: 10, min: 0, id: :bottom_of_4th
             td#tb5
-              = score.number_field :bottom_of_fifth, class: "form-inning", tabindex: 12, min: 0
+              = score.number_field :bottom_of_fifth, class: "form-inning", tabindex: 12, min: 0, id: :bottom_of_5th
             td#tb6
-              = score.number_field :bottom_of_sixth, class: "form-inning", tabindex: 14, min: 0
+              = score.number_field :bottom_of_sixth, class: "form-inning", tabindex: 14, min: 0, id: :bottom_of_6th
             td#tb7
-              = score.number_field :bottom_of_seventh, class: "form-inning", tabindex: 16, min: 0
+              = score.number_field :bottom_of_seventh, class: "form-inning", tabindex: 16, min: 0, id: :bottom_of_7th
             td.b_total
               = !@game.bat_first ? @game.runs : @game.runs_allowed
     .game_overview.col-md-12
