@@ -260,6 +260,7 @@ GEM
     formatador (0.2.5)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    google-analytics-rails (1.1.1)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (0.9.5)
@@ -453,6 +454,7 @@ DEPENDENCIES
   faker
   fog
   font-awesome-rails
+  google-analytics-rails
   jbuilder (~> 2.5)
   jquery-ui-rails
   launchy (~> 2.4.3)

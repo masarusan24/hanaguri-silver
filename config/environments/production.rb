@@ -103,4 +103,7 @@ Rails.application.configure do
 
   config.secret_key = 'f246623d4baf53da50d8e7d9acdbf685be519e0dd45dceb5e127163a03fdbaab22459a0c4bd817726dcf0394cf78
 b971ab01492ed31baeea6a1bae7ae1e3fa8b'
+
+  # Use Google Analytics for prodution
+  GA.tracker = "UA-133347334-1"
 end
