@@ -32,7 +32,7 @@ module TeamsHelper
   end
 
   def win_rate(year)
-    sprintf("%.3f", wins(year) / @team.games.where(year: year).count.to_f)
+    sprintf("%.3f", wins(year) / (@team.games.where(year: year).count - draws(year)).to_f)
   end
 
   def total_runs(year)
