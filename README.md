@@ -46,7 +46,24 @@ https://hanaguri-silver.herokuapp.com/
 $ git clone git@github.com:masarusan24/hanaguri-silver.git
 ```
 
-次に、以下のコマンドで必要になる Ruby Gems をインストールします。
+PostgreSQLをインストールし、起動します。
+```
+$ brew install postgresql
+$ brew services start postgresql
+```
+
+Yarnをインストールします。
+```
+$ brew install yarn
+```
+
+jQueryをインストールします。
+```
+$ yarn add jquery
+```
+
+
+Ruby Gemsをインストールします。
 
 ```
 $ bundle install
@@ -55,6 +72,7 @@ $ bundle install
 その後、データベースへのマイグレーションを実行します。
 
 ```
+$ rails db:create
 $ rails db:migrate
 ```
 
