@@ -9,9 +9,14 @@ header.navbar.navbar-inverse.navbar-fixed-top
         span.icon-bar
       = link_to root_path, class: "navbar-brand" do
         = image_tag asset_path "softball_pitcher.gif"
-      = link_to root_path, class: "navbar-brand" do
-        .header-title
-          | HanaguriSilver
+      - if test_user?
+        = link_to test_path, class: "navbar-brand" do
+          .header-title
+            | Point mill
+      - else
+        = link_to root_path, class: "navbar-brand" do
+          .header-title
+            | HanaguriSilver
     #gnavi.collapse.navbar-collapse
       ul.nav.navbar-nav
         li
@@ -19,7 +24,7 @@ header.navbar.navbar-inverse.navbar-fixed-top
         li
           = link_to t(:game_list), games_path
         li
-          = link_to t(:team_record), team_path(:silver)
+          = link_to t(:team_record), team_path(my_team.team_short_name)
         li
           = link_to t(:contact), new_contact_path
         - if logged_in?

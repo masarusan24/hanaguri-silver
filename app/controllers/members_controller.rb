@@ -21,7 +21,7 @@ class MembersController < ApplicationController
   def edit; end
 
   def index
-    @members = Member.index.order(:id)
+    @members = Member.index.order(:id).where(team_id: my_team.id)
   end
 
   def update
