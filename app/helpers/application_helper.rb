@@ -1,6 +1,5 @@
 module ApplicationHelper
   # include Redcarpet
-
   def markdown(text)
     unless @markdown
       renderer = Redcarpet::Render::HTML.new(filter_html: true, hard_wrap: true)
