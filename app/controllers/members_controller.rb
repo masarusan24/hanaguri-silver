@@ -9,6 +9,7 @@ class MembersController < ApplicationController
 
   def create
     @member = Member.new(member_params)
+    @member.team_id = my_team.id
     if @member.save
       redirect_to members_path, flash: { success: t('.success') }
     else
