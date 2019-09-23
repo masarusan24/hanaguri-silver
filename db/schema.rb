@@ -15,14 +15,6 @@ ActiveRecord::Schema.define(version: 20180414075531) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "admin_users", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "password_digest"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "batting_records", force: :cascade do |t|
     t.integer "member_id"
     t.integer "game_record_id"
@@ -41,7 +33,6 @@ ActiveRecord::Schema.define(version: 20180414075531) do
     t.integer "stolen_base"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "year"
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -50,26 +41,6 @@ ActiveRecord::Schema.define(version: 20180414075531) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "game_records", force: :cascade do |t|
-    t.integer "year"
-    t.date "date"
-    t.string "ground"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "team_id"
-  end
-
-  create_table "game_relations", force: :cascade do |t|
-    t.integer "team_id"
-    t.integer "game_record_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean "is_top"
-    t.boolean "win"
-    t.boolean "lose"
-    t.boolean "draw"
   end
 
   create_table "games", force: :cascade do |t|
@@ -88,45 +59,6 @@ ActiveRecord::Schema.define(version: 20180414075531) do
     t.boolean "is_draw"
     t.text "overview"
     t.index ["team_id"], name: "index_games_on_team_id"
-  end
-
-  create_table "innings", force: :cascade do |t|
-    t.string "top_of_first"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "game_record_id"
-    t.index ["game_record_id"], name: "index_innings_on_game_record_id"
-  end
-
-  create_table "innings_details", force: :cascade do |t|
-    t.integer "top_of_first"
-    t.integer "top_of_second"
-    t.integer "top_of_third"
-    t.integer "top_of_fourth"
-    t.integer "top_of_fifth"
-    t.integer "top_of_sixth"
-    t.integer "top_of_seventh"
-    t.integer "top_of_eighth"
-    t.integer "top_of_ninth"
-    t.integer "top_of_tenth"
-    t.integer "top_of_eleventh"
-    t.integer "top_of_twelfth"
-    t.integer "bottom_of_first"
-    t.integer "bottom_of_second"
-    t.integer "bottom_of_third"
-    t.integer "bottom_of_fourth"
-    t.integer "bottom_of_fifth"
-    t.integer "bottom_of_sixth"
-    t.integer "bottom_of_seventh"
-    t.integer "bottom_of_eighth"
-    t.integer "bottom_of_ninth"
-    t.integer "bottom_of_tenth"
-    t.integer "bottom_of_eleventh"
-    t.integer "bottom_of_twelfth"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "game_record_id"
-    t.index ["game_record_id"], name: "index_innings_details_on_game_record_id"
   end
 
   create_table "members", force: :cascade do |t|
@@ -154,14 +86,6 @@ ActiveRecord::Schema.define(version: 20180414075531) do
     t.integer "home_run"
     t.integer "strikeout"
     t.integer "bb_hbp"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "year"
-  end
-
-  create_table "position_relations", force: :cascade do |t|
-    t.integer "batting_record_id"
-    t.integer "position_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -224,8 +148,6 @@ ActiveRecord::Schema.define(version: 20180414075531) do
   end
 
   add_foreign_key "games", "teams"
-  add_foreign_key "innings", "game_records"
-  add_foreign_key "innings_details", "game_records"
   add_foreign_key "members", "teams"
   add_foreign_key "scores", "games"
 end

@@ -10,4 +10,8 @@ module SessionsHelper
   def sign_in(user)
     session[:user_id] = user.id
   end
+
+  def test_user?
+    logged_in? ? current_user.name == 'test' : false
+  end
 end

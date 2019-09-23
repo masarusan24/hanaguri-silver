@@ -2,6 +2,10 @@ require 'rails_helper'
 
 RSpec.describe MembersController, type: :controller do
   describe '#index' do
+    before do
+      @team = FactoryBot.create(:team)
+    end
+
     # Adminユーザとして
     context 'as an administrator' do
       before do
@@ -21,7 +25,6 @@ RSpec.describe MembersController, type: :controller do
       before do
         @user = FactoryBot.create(:user)
       end
-
       # 正常にレスポンスを返すこと
       it 'responds successfully' do
         sign_in @user
