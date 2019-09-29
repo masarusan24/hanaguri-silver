@@ -11,7 +11,6 @@ RSpec.feature "Games", type: :feature do
     # TOPページからログインする
     visit root_path
     click_link t(:log_in)
-    fill_in :name, with: user.name
     fill_in :email, with: user.email
     fill_in :password, with: user.password
     click_button t(:helpers)[:submit][:submit]
