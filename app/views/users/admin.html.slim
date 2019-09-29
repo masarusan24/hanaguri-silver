@@ -10,5 +10,6 @@ h1.title
       = link_to t(:member_manage), members_path, class: "btn btn-default btn-menu"
     .col-md-6.col-md-offset-3.col-sm-6.col-sm-offset-3
       = link_to t(:new_member), new_member_path, class: "btn btn-default btn-menu"
-    .col-md-6.col-md-offset-3.col-sm-6.col-sm-offset-3
-      = link_to t(:user_manage), users_path, class: "btn btn-default btn-menu"
+    - unless test_user?
+      .col-md-6.col-md-offset-3.col-sm-6.col-sm-offset-3
+        = link_to t(:user_manage), users_path, class: "btn btn-default btn-menu"
