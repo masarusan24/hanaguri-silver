@@ -34,6 +34,9 @@ gem 'redcarpet'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.15.4'
+  gem "pry-byebug"
+  gem "pry-doc"
+  gem "pry-rails"
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
   gem 'poltergeist'
