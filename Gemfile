@@ -21,7 +21,7 @@ gem "font-awesome-rails"
 # for image upload
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'fog'
+gem 'fog-aws'
 gem 'dotenv-rails'
 # for use authorization setting
 gem 'banken'
